@@ -1,0 +1,68 @@
+﻿What Vera does
+Vera is an ESG management and reporting platform. Companies come to Vera to collect their Environmental, Social, and Governance data, check compliance against frameworks like GRI and CSRD, and generate a publication-ready ESG report — without needing a sustainability consultant or a dedicated team. The target users are SMEs and Africa (Angola as the priority market). The core promise: a company with no prior ESG experience can produce a credible, compliant report in under 4 hours.
+________________
+
+
+Name & Brand Direction
+Vera — Latin for "truth". An ESG report is fundamentally about telling the truth about your company's impact. The name is short, cross-cultural, works in Portuguese, French, English and Spanish, and has a quiet confidence to it. It doesn't scream "green tech" — it feels trustworthy and human.
+________________
+
+
+Visual Identity
+Aesthetic direction: Ecologi-inspired — organic, editorial, calm authority. Not a typical SaaS product with gradients and glowing cards. Vera should feel like a high-end sustainability consultancy that happens to be a software product. Think natural materials, craft, intentionality.
+Color palette:
+* Primary — Forest #1A3D22 — deep, almost-black green. Used for headings, primary buttons, nav background option, footer.
+* Secondary — Grove #2E6B40 — mid-range green for interactive elements, active states, icons.
+* Accent — Fern #5AAF72 — brighter green for highlights, progress bars, badges, data accents.
+* Light — Mist #EAF5ED — very pale green for card backgrounds, tag backgrounds, subtle section fills.
+* Warm — Linen #F7F3EC — off-white cream for page background. Never pure white — Vera always has warmth.
+* Text — Bark #0F2014 — near-black for body text and headings.
+* Muted — Moss #4A6B52 — for secondary text, labels, captions.
+* Subtle — Lichen #8FAF96 — for placeholder text, dividers, tertiary info.
+No purple. No blue. No gradients. No dark mode in the marketing site — the warmth of linen and forest green is the identity.
+________________
+
+
+Typography
+Display / Headings: Instrument Serif — elegant, editorial, with a beautiful italic. Used for all H1, H2, and any large statement text. The italic variant is used for emphasis within headlines (like Ecologi does — "hours, not months"). This is what gives Vera its personality.
+Body / UI: DM Sans — clean, geometric, highly legible at small sizes. Weight 300 for long-form text, 400 for UI body, 500 for labels and buttons. Never 600 or 700 — heaviness breaks the organic feel.
+Scale:
+* Hero H1: 3.2–3.8rem, Instrument Serif, weight 400
+* Section H2: 2.4–2.8rem, Instrument Serif, weight 400
+* Card titles: 1rem, DM Sans, weight 500
+* Body: 1rem / 1.05rem, DM Sans, weight 300–400, line-height 1.7
+* Labels / tags: 0.75–0.8rem, DM Sans, weight 500, letter-spacing 0.08em
+* Captions: 0.72rem, DM Sans, weight 400, color Moss
+Italic rule: Instrument Serif italic is used inside headlines to give emotional emphasis — not in body text, not in UI. Reserve it for moments that matter.
+________________
+
+
+Pages
+3. ESG Dashboard The home screen after login. A circular score ring (0–100) at the top left, pillar breakdown bars (E / S / G) alongside it. Below: a 3-column metric grid (CO₂ total, turnover rate, board diversity, etc.). A compliance progress card per framework. A year-over-year trend chart in Fern green. A "top 3 improvement actions" block bottom right. Background Linen, cards in white with 1px Mist border.
+4. Data entry — Environmental Tabbed interface: E / S / G across the top. Each tab is a structured form. Fields have inline unit labels, help tooltips, and a "why this matters" expandable note. Below each field cluster, a calculated result card appears in Mist background — "→ Scope 2 calculated: 180t CO₂e". File upload zone at the bottom for Excel/PDF parsing. Completion progress bar per section.
+5. Data entry — Social Same layout as Environmental. HR metrics: headcount, turnover, injuries, training hours, gender pay gap. Some fields can be filled by inviting an HR team member — a "Assign to HR" chip on those fields. Calculated outputs: LTIFR, turnover rate %.
+6. Data entry — Governance Same layout. Board composition, policies, ethics, whistleblower, data breaches. More boolean yes/no fields than the other two pillars. Policy document upload supported.
+7. Compliance checker Full-page view of all framework disclosures as a list. Three status indicators: green dot (complete), amber dot (partial), red dot (missing). Clicking a row expands to show what's missing, why it's required, and a direct link to the relevant form field. Export gap report as PDF. Framework toggle at the top (GRI / CSRD / TCFD).
+8. AI narrative editor Split view: left panel shows the data submitted for a section, right panel shows the AI-generated narrative paragraph. Edit button opens the text inline. Approve button marks it as reviewed. Version history accessible. Badge on each paragraph: "AI generated" until approved, then "Reviewed". Language selector at the top for multilingual output.
+9. Report preview & export Full-page report preview rendered as it will appear in PDF. Sidebar with export options: PDF (branded), DOCX (editable), shareable link. Branding settings: upload logo, set accent color. A GRI Content Index appendix is generated automatically at the bottom. Download triggers a Celery background job — user gets a notification when ready.
+10. Settings Tabs: Organization profile / Team members / Billing / Integrations / Notifications. Team member table with role badges (Admin / Editor / Viewer). Invite by email. Integration cards for ERP connectors (locked until Phase 2). Billing shows current plan, usage, and upgrade path.
+11. Consultant portal (Phase 2) A special view for consultants. Left sidebar lists all client organizations. Clicking one enters that org's workspace. Top bar always shows which client you're viewing. Bulk actions: export all client reports, compare scores across clients.
+________________
+
+
+Design Patterns
+Cards: White background, 1px border in Mist (rgba(10,31,15,0.08)), border-radius: 14px, padding 1.4–1.6rem. No drop shadow on marketing cards. Subtle box-shadow: 0 4px 24px rgba(10,31,15,0.05) on dashboard cards only.
+Buttons:
+* Primary: Forest background, white text, border-radius: 100px (pill shape), DM Sans 500
+* Ghost: transparent, Forest border 1.5px, Forest text, pill shape
+* Danger: only for delete actions, subtle red
+Tags / pills: Mist background, Fern text, very small font, pill shape. Used for framework labels, status indicators, field requirements.
+Progress bars: 5–6px height, Fern fill on Mist background, fully rounded.
+Score ring: SVG circle with stroke-dasharray animation. Forest color at high scores, amber at mid, red at low.
+Forms: Fields have a warm-white background, 1px Lichen border, subtle focus ring in Fern. Labels in Moss, 0.78rem. No floating labels — always above the field.
+Spacing rhythm: 8px base unit. Sections breathe with 5–6rem vertical padding. Content max-width 1200px, always centered.
+________________
+
+
+Tone of voice
+Vera speaks like a knowledgeable colleague, not a software manual. Direct, clear, never condescending. Encourages progress without pressure. When something is missing it says "3 fields needed to complete this section" — not "ERROR: incomplete data". The brand tagline is something like "ESG reporting for companies that actually make things."
