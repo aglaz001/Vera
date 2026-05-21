@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#00210c",
+              "tertiary": "#00270f",
+              "on-secondary-fixed": "#00210c",
+              "on-tertiary-fixed-variant": "#005227",
+              "on-primary": "#ffffff",
+              "primary-container": "#1a3d22",
+              "on-error": "#ffffff",
+              "outline-variant": "#c2c8bf",
+              "secondary": "#2d6a3f",
+              "inverse-primary": "#a8d1ab",
+              "on-primary-container": "#82a885",
+              "outline": "#727971",
+              "on-secondary-container": "#337045",
+              "on-primary-fixed-variant": "#2b4e32",
+              "surface-dim": "#dddad3",
+              "surface": "#fdf9f2",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#00210a",
+              "on-background": "#1c1c18",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#a8d1ab",
+              "on-tertiary-container": "#5bb073",
+              "surface-variant": "#e6e2db",
+              "secondary-fixed": "#b0f2bb",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#c4edc6",
+              "inverse-on-surface": "#f4f0e9",
+              "surface-container-highest": "#e6e2db",
+              "inverse-surface": "#31302c",
+              "on-secondary-fixed-variant": "#115129",
+              "surface-container-low": "#f7f3ec",
+              "tertiary-container": "#003f1d",
+              "background": "#fdf9f2",
+              "tertiary-fixed": "#9ef6b2",
+              "surface-bright": "#fdf9f2",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#b0f2bb",
+              "primary": "#03270e",
+              "on-surface-variant": "#424841",
+              "surface-container": "#f1ede6",
+              "secondary-fixed-dim": "#95d5a1",
+              "surface-tint": "#436748",
+              "surface-container-high": "#ebe8e1",
+              "on-surface": "#1c1c18",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#83d998"
+            },
+            fontFamily: {
+              "headline": ["Instrument Serif", "Noto Serif", "serif"],
+              "body": ["DM Sans", "Inter", "sans-serif"],
+              "label": ["DM Sans", "Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fdf9f2;
+      }
+      .serif-italic {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#fdf9f2] dark:bg-stone-950 opacity-80 backdrop-blur-md shadow-[0_8px_24px_rgba(15,32,20,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-[1200px] mx-auto">
+<div class="text-2xl font-serif italic text-[#1A3D22] dark:text-[#EAF5ED]">Vera</div>
+<div class="hidden md:flex items-center space-gap-8 gap-8">
+<a class="text-[#727971] hover:text-[#1A3D22] text-sm font-medium transition-colors duration-200" href="#">Organizations</a>
+<a class="text-[#727971] hover:text-[#1A3D22] text-sm font-medium transition-colors duration-200" href="#">Help</a>
+<a class="text-[#727971] hover:text-[#1A3D22] text-sm font-medium transition-colors duration-200" href="#">Notifications</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1A3D22] cursor-pointer hover:bg-[#EAF5ED] p-2 rounded-full transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-[#1A3D22] cursor-pointer hover:bg-[#EAF5ED] p-2 rounded-full transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Side Navigation (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-24 bg-[#f7f3ec] dark:bg-stone-900 hidden lg:flex flex-col">
+<div class="px-6 mb-10">
+<h2 class="text-primary font-bold text-lg">Vera SME</h2>
+<p class="text-outline text-xs uppercase tracking-widest">Angola Division</p>
+</div>
+<nav class="flex flex-col flex-grow">
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span class="text-sm">Environmental</span>
+</a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm">Social</span>
+</a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="text-sm">Governance</span>
+</a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="text-sm">Compliance</span>
+</a>
+<!-- Active Tab: AI Narrative -->
+<a class="bg-[#ffffff] text-[#1A3D22] font-bold rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-sm">AI Narrative</span>
+</a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-sm">Reports</span>
+</a>
+</nav>
+<div class="mt-auto p-4 flex flex-col gap-2">
+<button class="bg-primary text-on-primary py-3 rounded-full font-medium text-sm hover:opacity-90 transition-opacity">
+          Submit Report
+        </button>
+<div class="flex flex-col mt-4">
+<a class="text-outline hover:text-primary px-4 py-2 flex items-center gap-3 text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span> Settings
+          </a>
+<a class="text-outline hover:text-primary px-4 py-2 flex items-center gap-3 text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span> Support
+          </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-12 px-8 min-h-screen">
+<div class="max-w-5xl mx-auto">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<h1 class="text-5xl font-serif text-primary">Narrative <span class="serif-italic">refinement</span></h1>
+<p class="text-outline mt-4 max-w-md font-light leading-relaxed">
+              Translate complex ESG metrics into clear, authoritative organizational narratives. Review and approve AI-generated insights for the final report.
+            </p>
+</div>
+<div class="flex flex-col items-end gap-3">
+<label class="text-[10px] uppercase tracking-widest text-outline font-bold">Content Language</label>
+<div class="flex bg-surface-container-low rounded-full p-1 border border-outline-variant/30">
+<button class="px-6 py-1.5 rounded-full text-xs font-medium bg-white text-primary shadow-sm">English</button>
+<button class="px-6 py-1.5 rounded-full text-xs font-medium text-outline hover:text-primary transition-colors">Portuguese</button>
+</div>
+</div>
+</header>
+<!-- Narrative Split View Container -->
+<div class="flex flex-col gap-16">
+<!-- Section 01: Carbon Strategy -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Left Panel: Raw Data (Read Only) -->
+<div class="md:col-span-5 flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="text-outline text-xs font-bold uppercase tracking-tighter">Section 01</span>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+</div>
+<h3 class="text-xl font-medium text-primary mb-6">Carbon Reduction Strategy</h3>
+<div class="space-y-8 bg-surface-container-low/50 p-6 rounded-lg border-l-2 border-secondary/20">
+<div>
+<label class="text-[10px] uppercase font-bold text-secondary mb-2 block">Key Performance Indicators</label>
+<ul class="space-y-3">
+<li class="text-sm text-secondary font-medium flex justify-between">
+<span>Scope 1 Emissions Reduction</span>
+<span class="font-serif italic text-primary">12.4% YoY</span>
+</li>
+<li class="text-sm text-secondary font-medium flex justify-between">
+<span>Renewable Energy Share</span>
+<span class="font-serif italic text-primary">45.0%</span>
+</li>
+<li class="text-sm text-secondary font-medium flex justify-between">
+<span>Total Carbon Offset</span>
+<span class="font-serif italic text-primary">2,450 tCO2e</span>
+</li>
+</ul>
+</div>
+<div>
+<label class="text-[10px] uppercase font-bold text-secondary mb-2 block">Contextual Context</label>
+<p class="text-sm text-secondary leading-relaxed italic">
+                    "This year's primary focus was the Luanda North micro-grid implementation. Initial capital expenditure was higher than anticipated but operational efficiency gains materialized in Q4."
+                  </p>
+</div>
+</div>
+</div>
+<!-- Right Panel: AI Narrative (Editable) -->
+<div class="md:col-span-7 flex flex-col gap-4">
+<div class="flex justify-between items-center mb-2">
+<span class="flex items-center gap-2 bg-[#EAF5ED] text-[#5AAF72] px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                  AI Generated
+                </span>
+<span class="text-[10px] text-outline italic">Last generated 2 hours ago</span>
+</div>
+<div class="relative group">
+<textarea class="w-full min-h-[220px] bg-white border border-outline-variant p-8 rounded-lg text-primary leading-relaxed text-base focus:ring-1 focus:ring-primary focus:border-primary transition-all shadow-sm outline-none resize-none" spellcheck="false">In the current fiscal year, the Angola Division has demonstrated a robust commitment to decarbonization, achieving a significant 12.4% year-on-year reduction in Scope 1 emissions. This progress was primarily catalyzed by the strategic implementation of the Luanda North micro-grid, which, despite initial capital intensive outlays, has stabilized our renewable energy share at 45%. These initiatives underscore our transition toward a resilient, low-carbon operational model, effectively offsetting 2,450 tCO2e and positioning the organization as a leader in regional energy efficiency.</textarea>
+</div>
+<div class="flex justify-end items-center gap-4 mt-2">
+<button class="flex items-center gap-2 text-primary font-medium text-sm px-6 py-2.5 rounded-full border border-primary/20 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                  Edit Draft
+                </button>
+<button class="bg-primary text-on-primary px-8 py-2.5 rounded-full font-medium text-sm hover:shadow-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                  Approve Section
+                </button>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-px w-full bg-outline-variant/10"></div>
+<!-- Section 02: Community Impact -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12 opacity-80 hover:opacity-100 transition-opacity">
+<!-- Left Panel: Raw Data (Read Only) -->
+<div class="md:col-span-5 flex flex-col">
+<div class="flex items-center gap-3 mb-6">
+<span class="text-outline text-xs font-bold uppercase tracking-tighter">Section 02</span>
+<div class="h-px flex-grow bg-outline-variant/30"></div>
+</div>
+<h3 class="text-xl font-medium text-primary mb-6">Social Engagement &amp; Community</h3>
+<div class="space-y-8 bg-surface-container-low/50 p-6 rounded-lg border-l-2 border-secondary/20">
+<div>
+<label class="text-[10px] uppercase font-bold text-secondary mb-2 block">Metrics Overview</label>
+<ul class="space-y-3">
+<li class="text-sm text-secondary font-medium flex justify-between">
+<span>Local Employment Rate</span>
+<span class="font-serif italic text-primary">82%</span>
+</li>
+<li class="text-sm text-secondary font-medium flex justify-between">
+<span>Vocational Training Hours</span>
+<span class="font-serif italic text-primary">1,200 hrs</span>
+</li>
+<li class="text-sm text-secondary font-medium flex justify-between">
+<span>Diversity in Leadership</span>
+<span class="font-serif italic text-primary">34% Women</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Right Panel: AI Narrative (Editable) -->
+<div class="md:col-span-7 flex flex-col gap-4">
+<div class="flex justify-between items-center mb-2">
+<span class="flex items-center gap-2 bg-[#EAF5ED] text-[#2E6B40] px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                  Reviewed
+                </span>
+<span class="text-[10px] text-outline italic">Reviewed by Ana S. • 10m ago</span>
+</div>
+<div class="relative">
+<div class="w-full bg-surface-container-low border border-outline-variant/40 p-8 rounded-lg text-primary/70 leading-relaxed text-base italic">
+                  "Our social license to operate remains predicated on deep local integration. With 82% of our workforce recruited from immediate operational areas, we have surpassed local content targets. Furthermore, our commitment to human capital development is evidenced by over 1,200 hours of vocational training delivered this cycle, ensuring the sustainability of local economic ecosystems."
+                </div>
+</div>
+<div class="flex justify-end items-center gap-4 mt-2">
+<button class="flex items-center gap-2 text-primary font-medium text-sm px-6 py-2.5 rounded-full border border-primary/20 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+                  View History
+                </button>
+<button class="bg-surface-container-highest text-primary px-8 py-2.5 rounded-full font-medium text-sm hover:bg-outline-variant/30 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="edit_note">edit_note</span>
+                  Revise Narrative
+                </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Visual Hint -->
+<footer class="mt-24 pt-12 border-t border-outline-variant/30 flex justify-between items-center text-outline text-xs">
+<p>© 2024 Vera Sustainability Reporting Framework</p>
+<div class="flex gap-8">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> 8/12 Sections Completed</span>
+<span class="flex items-center gap-1 font-medium text-primary">Next: Governance &amp; Ethics <span class="material-symbols-outlined text-[12px]" data-icon="arrow_forward">arrow_forward</span></span>
+</div>
+</footer>
+</div>
+</main>
+<!-- Contextual FAB (Hidden on this transactional screen as per protocol) -->
+<!-- The FAB is suppressed because this is a focused Task/Editor screen -->
+</body></html>

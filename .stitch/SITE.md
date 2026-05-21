@@ -27,5 +27,13 @@ Vera is the "Editorial Archivist" of ESG reporting. It provides calm authority a
 1. [x] Generate **Report Preview & Export** screen in Stitch.
 2. [x] Generate **Settings & Profile** screen in Stitch.
 3. [x] Perform a "Visual Consistency" pass on all screens to ensure "The Editorial Archivist" vibe is consistent.
-4. [ ] Initialize React frontend project.
-5. [ ] Convert designs to modular React components.
+4. [x] Initialize React frontend project.
+5. Convert designs to modular React components:
+   - [x] ESG Dashboard
+   - [x] Environmental Ledger
+   - [x] Social Ledger
+   - [x] Governance Ledger
+   - [x] Compliance Checker
+   - [x] AI Narrative Editor
+   - [x] Report Preview & Export
+   - [x] Settings & Profile

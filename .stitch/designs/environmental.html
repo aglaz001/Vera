@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Environmental Data Entry | Vera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#00210c",
+                        "tertiary": "#00270f",
+                        "on-secondary-fixed": "#00210c",
+                        "on-tertiary-fixed-variant": "#005227",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1a3d22",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#c2c8bf",
+                        "secondary": "#2d6a3f",
+                        "inverse-primary": "#a8d1ab",
+                        "on-primary-container": "#82a885",
+                        "outline": "#727971",
+                        "on-secondary-container": "#337045",
+                        "on-primary-fixed-variant": "#2b4e32",
+                        "surface-dim": "#dddad3",
+                        "surface": "#fdf9f2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#00210a",
+                        "on-background": "#1c1c18",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#a8d1ab",
+                        "on-tertiary-container": "#5bb073",
+                        "surface-variant": "#e6e2db",
+                        "secondary-fixed": "#b0f2bb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#c4edc6",
+                        "inverse-on-surface": "#f4f0e9",
+                        "surface-container-highest": "#e6e2db",
+                        "inverse-surface": "#31302c",
+                        "on-secondary-fixed-variant": "#115129",
+                        "surface-container-low": "#f7f3ec",
+                        "tertiary-container": "#003f1d",
+                        "background": "#fdf9f2",
+                        "tertiary-fixed": "#9ef6b2",
+                        "surface-bright": "#fdf9f2",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#b0f2bb",
+                        "primary": "#03270e",
+                        "on-surface-variant": "#424841",
+                        "surface-container": "#f1ede6",
+                        "secondary-fixed-dim": "#95d5a1",
+                        "surface-tint": "#436748",
+                        "surface-container-high": "#ebe8e1",
+                        "on-surface": "#1c1c18",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#83d998"
+                    },
+                    fontFamily: {
+                        "headline": ["Instrument Serif", "serif"],
+                        "body": ["DM Sans", "sans-serif"],
+                        "label": ["DM Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .font-serif { font-family: 'Instrument Serif', serif; }
+        .font-sans { font-family: 'DM Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-sans text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-[#fdf9f2] dark:bg-stone-950 opacity-80 backdrop-blur-md fixed top-0 w-full z-50 shadow-[0_8px_24px_rgba(15,32,20,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-[1200px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-serif italic text-[#1A3D22] dark:text-[#EAF5ED]">Vera</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-[#727971] hover:text-[#1A3D22] text-sm" href="#">Organizations</a>
+<a class="text-[#727971] hover:text-[#1A3D22] text-sm" href="#">Help</a>
+<a class="text-[#727971] hover:text-[#1A3D22] text-sm" href="#">Notifications</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1A3D22] cursor-pointer">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional woman with a warm expression in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwWNnHezFBDjjkzN_BtC0rdu4j4UwQU_6Yd-c92oyqvLC5r1drWL5VtviF_c6_qYFQP8kJMrEO-NxkRm27hVtELHfsMZ1_axIt8wkLadThbYBqZ4Yj4CC0VJw4JCY_ppvNxtmgFwpx3ZB9pAUfcpqHSPEaKWNzfZskFw-I7wyPG5uh_YCj0OI0dCDN-Sn41q4D0SMkIUFqErW_USRetJw6t9uBDeymktOBn_QjPrUd-YLbcx9MLogYvBlF83-_grMn6N7kQT6JXQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-20 bg-[#f7f3ec] dark:bg-stone-900 hidden lg:flex flex-col py-6">
+<div class="px-8 mb-10">
+<h2 class="text-xl font-serif text-[#1A3D22]">Vera SME</h2>
+<p class="text-xs text-outline">Angola Division</p>
+</div>
+<nav class="flex-grow">
+<ul class="space-y-1">
+<li><a class="bg-[#ffffff] text-[#1A3D22] font-bold rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span> Environmental</a>
+</li>
+<li><a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">group</span> Social</a>
+</li>
+<li><a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">gavel</span> Governance</a>
+</li>
+<li><a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">fact_check</span> Compliance</a>
+</li>
+<li><a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">auto_awesome</span> AI Narrative</a>
+</li>
+<li><a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">description</span> Reports</a>
+</li>
+</ul>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-medium mb-8">Submit Report</button>
+<ul class="space-y-1 border-t border-outline-variant pt-4">
+<li><a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-2 flex items-center gap-3 text-sm" href="#">
+<span class="material-symbols-outlined">settings</span> Settings</a>
+</li>
+<li><a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-2 flex items-center gap-3 text-sm" href="#">
+<span class="material-symbols-outlined">help_outline</span> Support</a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-20 px-6 md:px-12 max-w-[1200px]">
+<!-- Header & Section Tabs -->
+<header class="mb-12">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-serif text-primary mb-2">Environmental Ledger</h1>
+<p class="text-outline text-lg italic">The careful documentation of our planetary footprint.</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-full">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary text-sm font-medium">Environmental</button>
+<button class="px-6 py-2 rounded-full text-outline hover:text-primary text-sm font-medium">Social</button>
+<button class="px-6 py-2 rounded-full text-outline hover:text-primary text-sm font-medium">Governance</button>
+</div>
+</div>
+<!-- Progress Tracker -->
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-medium text-primary">
+<span>SECTION COMPLETION</span>
+<span>65%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#5AAF72] w-[65%]"></div>
+</div>
+</div>
+</header>
+<!-- Form Canvas -->
+<div class="space-y-16">
+<!-- Scope 1 Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-4">
+<h3 class="text-2xl font-serif text-primary mb-4">Scope 1: Direct Emissions</h3>
+<p class="text-sm text-outline leading-relaxed">Report emissions from sources that are owned or controlled by the organization, such as stationary combustion.</p>
+</div>
+<div class="md:col-span-8 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="block text-xs font-bold text-primary tracking-wider uppercase">NATURAL GAS CONSUMPTION</label>
+<div class="flex items-center gap-2 border-b border-outline-variant focus-within:border-primary transition-colors py-2">
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 text-lg" placeholder="0.00" type="number"/>
+<span class="text-outline text-sm">m³</span>
+<span class="material-symbols-outlined text-outline text-lg cursor-help">help</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-primary tracking-wider uppercase">DIESEL (STATIONARY)</label>
+<div class="flex items-center gap-2 border-b border-outline-variant focus-within:border-primary transition-colors py-2">
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 text-lg" placeholder="0.00" type="number"/>
+<span class="text-outline text-sm">Liters</span>
+<span class="material-symbols-outlined text-outline text-lg cursor-help">help</span>
+</div>
+</div>
+</div>
+<!-- Why this matters expandable -->
+<details class="bg-on-tertiary-container/10 p-6 rounded-lg group cursor-pointer">
+<summary class="flex items-center justify-between text-sm font-medium text-primary list-none">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">info</span>
+                                Why this matters
+                            </div>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="mt-4 text-sm text-secondary leading-relaxed font-serif italic">
+                            Direct combustion of fossil fuels represents your immediate impact on local air quality and global warming. Accurate measurement allows for targeted efficiency retrofits in your core infrastructure.
+                        </div>
+</details>
+<!-- Calculated Result Card -->
+<div class="bg-on-tertiary-container/5 p-6 rounded-xl border border-on-tertiary-container/10 flex items-center justify-between">
+<div>
+<span class="block text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Calculated Estimate</span>
+<span class="text-3xl font-serif text-primary">12.4t <span class="text-lg">CO2e</span></span>
+</div>
+<span class="material-symbols-outlined text-secondary text-4xl opacity-30">functions</span>
+</div>
+</div>
+</section>
+<!-- Scope 2 Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-4">
+<h3 class="text-2xl font-serif text-primary mb-4">Scope 2: Indirect Energy</h3>
+<p class="text-sm text-outline leading-relaxed">Emissions from the generation of purchased electricity, steam, heating, or cooling consumed by the reporting company.</p>
+</div>
+<div class="md:col-span-8 space-y-8">
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-xs font-bold text-primary tracking-wider uppercase">GRID ELECTRICITY</label>
+<div class="flex items-center gap-2 border-b border-outline-variant focus-within:border-primary transition-colors py-2">
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 text-lg" placeholder="42,500" type="number"/>
+<span class="text-outline text-sm">kWh</span>
+<span class="material-symbols-outlined text-outline text-lg cursor-help">help</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-xs font-bold text-primary tracking-wider uppercase">RENEWABLE ENERGY CREDIT (REC)</label>
+<div class="flex items-center gap-2 border-b border-outline-variant focus-within:border-primary transition-colors py-2">
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 text-lg" placeholder="0" type="number"/>
+<span class="text-outline text-sm">MWh</span>
+<span class="material-symbols-outlined text-outline text-lg cursor-help">help</span>
+</div>
+</div>
+</div>
+<!-- Calculated Result Card -->
+<div class="bg-on-tertiary-container/5 p-6 rounded-xl border border-on-tertiary-container/10 flex items-center justify-between">
+<div>
+<span class="block text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Scope 2 Total</span>
+<span class="text-3xl font-serif text-primary">180t <span class="text-lg">CO2e</span></span>
+</div>
+<span class="material-symbols-outlined text-secondary text-4xl opacity-30">bolt</span>
+</div>
+</div>
+</section>
+<!-- File Upload Zone -->
+<section class="pt-8">
+<div class="bg-surface-container-low border-2 border-dashed border-outline-variant rounded-xl p-12 text-center group hover:border-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-outline text-5xl mb-4 group-hover:text-secondary">upload_file</span>
+<h4 class="text-xl font-serif text-primary mb-2">Upload Supporting Evidence</h4>
+<p class="text-outline text-sm mb-6">Drag and drop your Excel utility logs or PDF utility bills here.</p>
+<button class="px-8 py-3 bg-secondary text-on-secondary rounded-full font-medium text-sm hover:bg-primary transition-colors">Select Files</button>
+<div class="mt-4 flex justify-center gap-4 text-xs text-outline italic">
+<span>Max file size: 25MB</span>
+<span>•</span>
+<span>Accepted: XLS, PDF, CSV</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Sticky Bottom Actions -->
+<footer class="mt-20 flex justify-between items-center border-t border-outline-variant pt-8">
+<button class="px-8 py-3 text-primary font-medium hover:underline flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span> Save as Draft
+            </button>
+<div class="flex gap-4">
+<button class="px-8 py-3 border border-outline text-primary rounded-full font-medium hover:bg-surface-container-highest transition-colors">Previous Section</button>
+<button class="px-12 py-3 bg-primary text-on-primary rounded-full font-medium shadow-lg">Save &amp; Continue</button>
+</div>
+</footer>
+</main>
+<!-- Floating Tooltip Context (Hidden by default, used for logic reference) -->
+<div class="hidden absolute bg-primary-container text-on-primary-container p-3 rounded-lg text-xs shadow-xl max-w-xs z-[100]" id="tooltip-template">
+        This value represents the gross calorific value of fuels consumed at the facility level.
+    </div>
+
+```</body></html>

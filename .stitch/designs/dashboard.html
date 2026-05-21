@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ESG Dashboard | Vera</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:wght@300;400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#00210a",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1c1c18",
+              "surface": "#fdf9f2",
+              "secondary-fixed-dim": "#95d5a1",
+              "on-primary-fixed-variant": "#2b4e32",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#337045",
+              "primary-fixed": "#c4edc6",
+              "secondary-fixed": "#b0f2bb",
+              "surface-bright": "#fdf9f2",
+              "error-container": "#ffdad6",
+              "primary": "#03270e",
+              "surface-container-low": "#f7f3ec",
+              "secondary-container": "#b0f2bb",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#ebe8e1",
+              "on-secondary-fixed": "#00210c",
+              "tertiary-fixed": "#9ef6b2",
+              "on-secondary-fixed-variant": "#115129",
+              "on-error": "#ffffff",
+              "inverse-surface": "#31302c",
+              "tertiary-container": "#003f1d",
+              "on-tertiary-fixed": "#00210c",
+              "on-error-container": "#93000a",
+              "surface-dim": "#dddad3",
+              "on-tertiary-container": "#5bb073",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#436748",
+              "inverse-primary": "#a8d1ab",
+              "on-surface": "#1c1c18",
+              "surface-container-highest": "#e6e2db",
+              "surface-container": "#f1ede6",
+              "secondary": "#2d6a3f",
+              "inverse-on-surface": "#f4f0e9",
+              "outline-variant": "#c2c8bf",
+              "primary-container": "#1a3d22",
+              "on-surface-variant": "#424841",
+              "tertiary-fixed-dim": "#83d998",
+              "on-primary-container": "#82a885",
+              "outline": "#727971",
+              "background": "#fdf9f2",
+              "surface-variant": "#e6e2db",
+              "tertiary": "#00270f",
+              "on-tertiary-fixed-variant": "#005227",
+              "primary-fixed-dim": "#a8d1ab"
+            },
+            fontFamily: {
+              "headline": ["Instrument Serif", "serif"],
+              "body": ["DM Sans", "sans-serif"],
+              "label": ["DM Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "14px", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fdf9f2;
+      }
+      h1, h2, h3, .serif-italic {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+      }
+      .circular-progress {
+        background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
+                    conic-gradient(#5AAF72 82%, #e6e2db 0);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-[#f7f3ec] flex flex-col py-8 z-40">
+<div class="px-8 mb-12">
+<h1 class="text-3xl font-serif italic text-[#1A3D22]">Vera</h1>
+<p class="text-xs font-medium tracking-widest text-secondary opacity-70 uppercase mt-1">Sustainability Archivist</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-4 bg-[#1A3D22] text-white rounded-r-full mr-4 px-8 py-3 translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center space-x-4 text-[#2E6B40] opacity-70 hover:opacity-100 hover:bg-[#e6e2db] rounded-r-full mr-4 px-8 py-3 transition-all" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-medium tracking-wide">Environmental</span>
+</a>
+<a class="flex items-center space-x-4 text-[#2E6B40] opacity-70 hover:opacity-100 hover:bg-[#e6e2db] rounded-r-full mr-4 px-8 py-3 transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium tracking-wide">Social</span>
+</a>
+<a class="flex items-center space-x-4 text-[#2E6B40] opacity-70 hover:opacity-100 hover:bg-[#e6e2db] rounded-r-full mr-4 px-8 py-3 transition-all" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-medium tracking-wide">Governance</span>
+</a>
+<a class="flex items-center space-x-4 text-[#2E6B40] opacity-70 hover:opacity-100 hover:bg-[#e6e2db] rounded-r-full mr-4 px-8 py-3 transition-all" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-medium tracking-wide">Reports</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1">
+<a class="flex items-center space-x-4 text-[#2E6B40] opacity-70 hover:opacity-100 hover:bg-[#e6e2db] rounded-r-full mr-4 px-8 py-3 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium tracking-wide">Settings</span>
+</a>
+<a class="flex items-center space-x-4 text-[#2E6B40] opacity-70 hover:opacity-100 hover:bg-[#e6e2db] rounded-r-full mr-4 px-8 py-3 transition-all" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-medium tracking-wide">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen pb-20 px-12 pt-8">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-5xl text-primary mb-2">The Living Ledger</h2>
+<p class="text-secondary opacity-80 max-w-lg">An editorial synthesis of your organization's ecological and social resonance. Data updated as of Oct 24, 2024.</p>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative">
+<span class="material-symbols-outlined text-primary p-2 hover:bg-[#EAF5ED] rounded-full transition-colors cursor-pointer">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container-highest border border-outline-variant/20">
+<img alt="User profile" data-alt="professional headshot of a woman in a neutral colored blazer against a soft warm studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADCfhIiawBt80nmlB6c0u0MXxFCho5nR1DVSNh7La-n72XwOfnwoccKRNECruRqIwfitOr7f2AOkzidxkvNcfY5YOFbfYF9aJpY4Rsb_1CUonk3zj4_w0UYebf13DsQy5QEK2S8mMZMfn4jvRMFJ9U5jMofPGQ66aWhSAgx2JiU1-ZPMVcWKHL8Ic46kQzxl_bX5MO7Fg6Dj2SrCj16JQTHPFGXaJBkpWot31Ar2dvVqmvt8aRZw5wBM6GunTTvFbNlc7BLwgexQ"/>
+</div>
+</div>
+</header>
+<!-- Top Overview Bento -->
+<div class="grid grid-cols-12 gap-8 mb-12">
+<!-- Score & Pillars Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_24px_rgba(15,32,20,0.04)] border border-[#EAF5ED] flex items-center gap-12">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<div class="circular-progress w-full h-full rounded-full flex items-center justify-center">
+<div class="text-center">
+<span class="block text-5xl font-serif italic text-primary leading-none">82</span>
+<span class="text-xs font-bold uppercase tracking-widest text-secondary/60">Global Score</span>
+</div>
+</div>
+</div>
+<div class="flex-1 space-y-8">
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-medium text-primary">Environmental</span>
+<span class="text-sm font-serif italic text-secondary">78/100</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#5AAF72] rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-medium text-primary">Social</span>
+<span class="text-sm font-serif italic text-secondary">85/100</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#5AAF72] rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-medium text-primary">Governance</span>
+<span class="text-sm font-serif italic text-secondary">88/100</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#5AAF72] rounded-full" style="width: 88%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Compliance Progress Block -->
+<div class="col-span-12 lg:col-span-5 grid grid-rows-2 gap-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-[#EAF5ED] flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<h3 class="text-2xl text-primary">GRI Framework</h3>
+<span class="text-xs px-2 py-1 bg-[#EAF5ED] text-secondary rounded font-medium">Verified</span>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#5AAF72]" style="width: 92%"></div>
+</div>
+<span class="text-sm font-medium text-primary">92%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-[#EAF5ED] flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<h3 class="text-2xl text-primary">CSRD Readiness</h3>
+<span class="text-xs px-2 py-1 bg-surface-container-high text-on-surface-variant rounded font-medium">In Progress</span>
+</div>
+<div class="mt-4 flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-[#5AAF72]" style="width: 64%"></div>
+</div>
+<span class="text-sm font-medium text-primary">64%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3-Column Metric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-[#EAF5ED]">
+<p class="text-xs uppercase tracking-widest text-secondary/60 font-bold mb-4">Carbon Footprint</p>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-serif italic text-primary">12.4</span>
+<span class="text-sm font-medium text-secondary/60">k tCO2e</span>
+</div>
+<p class="mt-4 text-sm text-[#5AAF72] flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+                    4.2% reduction from last year
+                </p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-[#EAF5ED]">
+<p class="text-xs uppercase tracking-widest text-secondary/60 font-bold mb-4">Turnover Rate</p>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-serif italic text-primary">8.2</span>
+<span class="text-sm font-medium text-secondary/60">% annually</span>
+</div>
+<p class="mt-4 text-sm text-[#5AAF72] flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+                    Stable employee retention
+                </p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-[#EAF5ED]">
+<p class="text-xs uppercase tracking-widest text-secondary/60 font-bold mb-4">Board Diversity</p>
+<div class="flex items-baseline gap-2">
+<span class="text-5xl font-serif italic text-primary">42</span>
+<span class="text-sm font-medium text-secondary/60">% representation</span>
+</div>
+<p class="mt-4 text-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">balance</span>
+                    Industry leading parity
+                </p>
+</div>
+</div>
+<!-- Trend & Actions Section -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Year-over-Year Trend Chart Placeholder -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl border border-[#EAF5ED]">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-3xl text-primary">Temporal Trajectory</h3>
+<div class="flex gap-4">
+<button class="text-xs font-bold px-3 py-1 rounded-full border border-primary text-primary">Monthly</button>
+<button class="text-xs font-bold px-3 py-1 rounded-full text-secondary/40">Quarterly</button>
+</div>
+</div>
+<!-- Custom Chart Visualization -->
+<div class="h-64 flex items-end justify-between px-4">
+<div class="w-12 bg-[#5AAF72]/20 rounded-t-lg h-[40%] relative group">
+<div class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">12k</div>
+</div>
+<div class="w-12 bg-[#5AAF72]/30 rounded-t-lg h-[55%] relative group"></div>
+<div class="w-12 bg-[#5AAF72]/40 rounded-t-lg h-[45%] relative group"></div>
+<div class="w-12 bg-[#5AAF72]/50 rounded-t-lg h-[70%] relative group"></div>
+<div class="w-12 bg-[#5AAF72]/60 rounded-t-lg h-[65%] relative group"></div>
+<div class="w-12 bg-[#5AAF72]/70 rounded-t-lg h-[85%] relative group"></div>
+<div class="w-12 bg-[#5AAF72]/80 rounded-t-lg h-[75%] relative group"></div>
+<div class="w-12 bg-[#5AAF72] rounded-t-lg h-[95%] relative group"></div>
+</div>
+<div class="mt-6 flex justify-between px-4 text-[10px] font-bold tracking-widest text-secondary/40 uppercase">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+</div>
+</div>
+<!-- Top 3 Improvement Actions -->
+<div class="col-span-12 lg:col-span-4 bg-[#1A3D22] text-on-primary p-8 rounded-xl shadow-lg flex flex-col">
+<h3 class="text-3xl font-serif italic text-white mb-8">Strategic Pivots</h3>
+<div class="space-y-6 flex-1">
+<div class="flex items-start gap-4 p-4 rounded-lg bg-white/5 border border-white/10">
+<span class="text-2xl font-serif italic text-[#5AAF72]">01</span>
+<div>
+<p class="font-medium text-white">Supply Chain Audit</p>
+<p class="text-sm text-white/60">Identify Scope 3 leakage in Southeast Asian logistics clusters.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-lg bg-white/5 border border-white/10">
+<span class="text-2xl font-serif italic text-[#5AAF72]">02</span>
+<div>
+<p class="font-medium text-white">Renewable Transition</p>
+<p class="text-sm text-white/60">Shift Berlin and Madrid hubs to 100% solar micro-grids by Q1.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-lg bg-white/5 border border-white/10">
+<span class="text-2xl font-serif italic text-[#5AAF72]">03</span>
+<div>
+<p class="font-medium text-white">Equity Benchmark</p>
+<p class="text-sm text-white/60">Launch internal mentorship program for leadership candidates.</p>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full py-4 bg-[#5AAF72] text-primary font-bold rounded-full hover:bg-white transition-colors duration-300">
+                    Initiate Actions
+                </button>
+</div>
+</div>
+<!-- Footer Editorial Quote -->
+<footer class="mt-20 border-t border-outline-variant/30 pt-12 text-center">
+<p class="text-3xl font-serif italic text-primary/40 max-w-2xl mx-auto">
+                "Sustainability is not a final destination, but the rhythmic precision of maintaining the balance between growth and the ground beneath us."
+            </p>
+<div class="mt-6 flex justify-center items-center gap-2 opacity-40">
+<span class="material-symbols-outlined text-sm">eco</span>
+<span class="text-xs uppercase tracking-tighter font-bold">The Living Ledger © 2024</span>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB - Restricted to Dashboard -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-[#1A3D22] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all group z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+<div class="absolute right-full mr-4 bg-primary text-white px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap text-sm font-medium">
+            Generate Audit Report
+        </div>
+</button>
+</body></html>

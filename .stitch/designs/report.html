@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e6e2db",
+              "inverse-primary": "#a8d1ab",
+              "tertiary-container": "#003f1d",
+              "surface-bright": "#fdf9f2",
+              "on-primary-container": "#82a885",
+              "secondary-fixed": "#b0f2bb",
+              "primary-container": "#1a3d22",
+              "on-secondary-fixed-variant": "#115129",
+              "outline": "#727971",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f4f0e9",
+              "tertiary-fixed": "#9ef6b2",
+              "primary-fixed": "#c4edc6",
+              "primary-fixed-dim": "#a8d1ab",
+              "on-surface": "#1c1c18",
+              "error-container": "#ffdad6",
+              "on-secondary-container": "#337045",
+              "on-tertiary-fixed-variant": "#005227",
+              "on-primary-fixed": "#00210a",
+              "tertiary": "#00270f",
+              "primary": "#03270e",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#b0f2bb",
+              "on-background": "#1c1c18",
+              "tertiary-fixed-dim": "#83d998",
+              "secondary": "#2d6a3f",
+              "inverse-surface": "#31302c",
+              "on-tertiary-fixed": "#00210c",
+              "surface-dim": "#dddad3",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f7f3ec",
+              "secondary-fixed-dim": "#95d5a1",
+              "outline-variant": "#c2c8bf",
+              "surface-variant": "#e6e2db",
+              "on-tertiary-container": "#5bb073",
+              "surface-tint": "#436748",
+              "on-secondary-fixed": "#00210c",
+              "error": "#ba1a1a",
+              "surface-container-high": "#ebe8e1",
+              "surface-container": "#f1ede6",
+              "on-surface-variant": "#424841",
+              "surface": "#fdf9f2",
+              "on-primary-fixed-variant": "#2b4e32",
+              "background": "#fdf9f2",
+              "on-error-container": "#93000a"
+            },
+            fontFamily: {
+              "serif": ["Instrument Serif", "serif"],
+              "sans": ["DM Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fdf9f2;
+      }
+      .font-serif { font-family: 'Instrument Serif', serif; }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      .preview-canvas::-webkit-scrollbar { width: 6px; }
+      .preview-canvas::-webkit-scrollbar-track { background: transparent; }
+      .preview-canvas::-webkit-scrollbar-thumb { background: #c2c8bf; border-radius: 10px; }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-[#fdf9f2]/80 backdrop-blur-xl fixed top-0 z-50 w-full flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-serif italic text-[#1A3D22]">Vera</span>
+<nav class="hidden md:flex gap-6 text-sm">
+<a class="text-[#2E6B40]/70 hover:text-[#1A3D22] transition-colors" href="#">Dashboard</a>
+<a class="text-[#1A3D22] font-medium border-b-2 border-[#1A3D22] pb-1" href="#">Reports</a>
+<a class="text-[#2E6B40]/70 hover:text-[#1A3D22] transition-colors" href="#">Archivist</a>
+<a class="text-[#2E6B40]/70 hover:text-[#1A3D22] transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#EAF5ED]/50 rounded-full transition-all">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#EAF5ED]/50 rounded-full transition-all">
+<span class="material-symbols-outlined text-primary">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile avatar" data-alt="professional headshot of a woman with a warm smile in soft natural lighting, high-end corporate style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIJS2lSEpyehs-dTN_u5VXa8wujAZQ3ZNOqG01kuhB7tDde5hf0hiB79BXI9MxzOJbjnekqH3Pz0NPam5LmGAp3AC6gXyG3GBIX2iCT3VBinNGeHjToQ7Kd5iocG3uj04XBaRuOQLsiOEJxEYtqUZqUl9Hlj-ytWfTqP2EinYlsAc-z65obuiWmpHb9VTA6c03DSd75kNaRl27TOWUbmJwPdBuky3GnwNRqNg3rl7VBsuSyZuak9o2FjwIEq2ZY0f7ad0f70Hv0g"/>
+</div>
+</div>
+</header>
+<!-- Breadcrumb & Header -->
+<div class="pt-24 px-8 pb-4">
+<div class="max-w-[1200px] mx-auto flex items-center gap-2 text-xs font-sans tracking-widest text-outline uppercase">
+<span>Reports</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-medium">2024 ESG Annual Report</span>
+</div>
+</div>
+<!-- Main Content Grid -->
+<main class="flex-1 flex overflow-hidden max-w-[1440px] mx-auto w-full px-8 gap-8 pb-8">
+<!-- Preview Canvas -->
+<section class="flex-1 bg-surface-container-low rounded-[14px] overflow-hidden flex flex-col items-center p-12 preview-canvas overflow-y-auto">
+<div class="w-full max-w-[800px] bg-white shadow-[0_8px_24px_rgba(15,32,20,0.06)] min-h-[1200px] p-20 flex flex-col gap-16 rounded-sm">
+<!-- Report Header -->
+<header class="border-b border-outline-variant/20 pb-12">
+<div class="flex justify-between items-start mb-12">
+<span class="font-serif italic text-2xl text-primary">Vera</span>
+<span class="text-xs font-sans tracking-widest text-outline">EDITION 2024.01</span>
+</div>
+<h1 class="text-6xl font-serif text-primary leading-tight max-w-lg">
+                        The Living Ledger: <span class="italic">Sustaining Our Forest Capital</span>
+</h1>
+</header>
+<!-- Editorial Visual -->
+<div class="w-full h-80 rounded-[14px] overflow-hidden">
+<img alt="Forest sunlight" class="w-full h-full object-cover" data-alt="atmospheric sunlight streaming through dense green forest canopy, soft mist between trees, ethereal and calm nature photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKlkpcGls2CGTf3OYZrH8BHlfp5z1W36VTXNjR_p3IYRt9ugtPKuU4UoDnWRlZGKVFx3TiVPyKVQyHfFy7e_iPWxRdPFkzX82zGFu-29kJbUEwoTztpdOHxQFzCxQHwTiKa1fSV7l2sGJnGdV2u5Wx-xWCCIxL9Rsk9dQzYUaQjjoBqMFuelSTX-02vLhXL8t-nOAujbD9Nx4Cuhxw_dFKGLArQn8QZPd9Uv685wfeNkqzVoUeAXrJEmDvUCogx2Jp2d2S7cLnDA"/>
+</div>
+<!-- Abstract -->
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-4 text-xs font-sans tracking-widest text-secondary font-bold uppercase">
+                        Executive Summary
+                    </div>
+<div class="col-span-8">
+<p class="text-xl font-serif italic text-primary leading-relaxed mb-6">
+                            "This fiscal year, Vera achieved a 14% reduction in direct carbon emissions, outpacing the sector average by nearly double."
+                        </p>
+<p class="text-sm font-sans text-on-surface-variant leading-relaxed font-light">
+                            Our commitment to transparency remains the bedrock of our operational philosophy. In this audit, we delve into the intricate systems that govern our environmental footprint, exploring the intersection of technological efficiency and organic stewardship.
+                        </p>
+</div>
+</div>
+<!-- Data Grid -->
+<div class="grid grid-cols-3 gap-12 pt-8">
+<div class="flex flex-col gap-2">
+<span class="text-4xl font-serif text-primary">84%</span>
+<span class="text-[10px] font-sans tracking-widest text-outline uppercase">Renewable Mix</span>
+<div class="h-1 w-full bg-surface-container-highest rounded-full mt-2">
+<div class="h-full bg-secondary rounded-full" style="width: 84%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-4xl font-serif text-primary">2.4k</span>
+<span class="text-[10px] font-sans tracking-widest text-outline uppercase">Trees Planted</span>
+<div class="h-1 w-full bg-surface-container-highest rounded-full mt-2">
+<div class="h-full bg-secondary rounded-full" style="width: 65%"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-4xl font-serif text-primary">Net0</span>
+<span class="text-[10px] font-sans tracking-widest text-outline uppercase">Scope 1 Goal</span>
+<div class="h-1 w-full bg-surface-container-highest rounded-full mt-2 text-[8px] flex items-center">
+<span class="text-secondary font-bold">ON TRACK</span>
+</div>
+</div>
+</div>
+<!-- Content Body -->
+<div class="flex flex-col gap-8">
+<h2 class="text-2xl font-serif text-primary">01. Environmental Stewardship</h2>
+<p class="text-sm font-sans text-on-surface-variant leading-relaxed font-light">
+                        The preservation of biodiversity is not merely an ethical imperative but a core strategic pillar. By migrating our data centers to hydro-cooled facilities in the Northern Territories, we have effectively neutralized the thermal output of our primary processing units.
+                    </p>
+<div class="bg-surface-container-low p-8 rounded-[14px]">
+<img alt="Recycled glass" class="w-full h-48 object-cover rounded-[14px] mb-6" data-alt="close up of recycled green glass fragments glistening under soft white studio lighting, abstract sustainable texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo1WzwI6HlJ3DSvnHjvT7ldsJufGxzuAZFAA6TN9hbaPxqT-aj3VfQAlNAMkd1TUYT7zBpK_vOL2cvR6YsOF9cPMSIG_PhK9-wH1HhDSCwsgo3dqU3ENNW-S8ZkOwuAXNeObvCJTeEOLqGnT0bGl1BVCi1DzKgclzdG3yQiTC18Ukv7kccDFHpRM9lvfFDJDF9NhW7nwTbaQeAL5hQhC3RwtcE7L_PLKfJ4Q3_95HL9pISDK_atL-4ECL2i_piFQP7Yf3emqBlpg"/>
+<span class="text-xs font-sans italic text-secondary">Figure 1.1: Circular Economy implementation in glassware manufacturing.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions Sidebar -->
+<aside class="w-80 flex flex-col gap-6">
+<!-- SideNavBar Items Integrated as Actions -->
+<div class="bg-surface-container-low rounded-[14px] p-6 flex flex-col gap-6">
+<h3 class="text-sm font-sans font-bold tracking-widest text-primary uppercase">Export Options</h3>
+<div class="flex flex-col gap-3">
+<button class="bg-primary text-on-primary rounded-full py-3 px-6 flex items-center justify-between group transition-transform active:scale-95">
+<span class="text-sm font-medium">Export PDF</span>
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+</button>
+<button class="border border-outline text-primary rounded-full py-3 px-6 flex items-center justify-between hover:bg-surface-container-highest transition-all active:scale-95">
+<span class="text-sm font-medium">Export DOCX</span>
+<span class="material-symbols-outlined text-lg">description</span>
+</button>
+<button class="border border-outline text-primary rounded-full py-3 px-6 flex items-center justify-between hover:bg-surface-container-highest transition-all active:scale-95">
+<span class="text-sm font-medium">Share Link</span>
+<span class="material-symbols-outlined text-lg">share</span>
+</button>
+</div>
+</div>
+<!-- Report Settings -->
+<div class="bg-surface-container-low rounded-[14px] p-6 flex flex-col gap-6">
+<h3 class="text-sm font-sans font-bold tracking-widest text-primary uppercase">Report Settings</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<label class="text-sm text-on-surface-variant">GRI Content Index</label>
+<div class="w-10 h-5 bg-secondary rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm text-on-surface-variant">ESG Score Breakdown</label>
+<div class="w-10 h-5 bg-outline-variant rounded-full relative">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm text-on-surface-variant">Internal Comments</label>
+<div class="w-10 h-5 bg-outline-variant rounded-full relative">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Branding Panel -->
+<div class="bg-primary text-on-primary rounded-[14px] p-6 flex flex-col gap-6 mt-auto">
+<h3 class="text-xs font-sans font-bold tracking-widest uppercase opacity-70">Report Branding</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4 bg-white/10 p-3 rounded-[14px] cursor-pointer border border-white/5 hover:bg-white/20 transition-all">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white">upload_file</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-medium">Custom Logo</span>
+<span class="text-[10px] opacity-60">PNG, SVG (Max 2MB)</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-sans tracking-widest uppercase opacity-70">Accent Color</span>
+<div class="flex gap-2">
+<button class="w-6 h-6 rounded-full bg-[#1A3D22] border-2 border-white ring-2 ring-primary"></button>
+<button class="w-6 h-6 rounded-full bg-[#2E6B40]"></button>
+<button class="w-6 h-6 rounded-full bg-[#5AAF72]"></button>
+<button class="w-6 h-6 rounded-full bg-[#83d998]"></button>
+<button class="w-6 h-6 rounded-full bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px] text-primary">add</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full bg-[#5AAF72] text-primary font-bold py-3 rounded-full text-sm mt-2 transition-transform active:scale-95">
+                    Finalize Report
+                </button>
+</div>
+</aside>
+</main>
+<!-- SideNavBar (Hidden/Drawer Logic - Placeholder as per JSON requirements) -->
+<div class="hidden">
+<div class="fixed right-0 top-0 h-full flex flex-col py-8 bg-[#F7F3EC] w-80 border-l border-[#c2c8bf]/20 z-[60]">
+<div class="px-8 mb-8">
+<h4 class="text-primary font-serif italic text-xl">The Living Ledger</h4>
+<p class="text-xs text-[#2E6B40] font-light">FY2024 ESG Audit</p>
+</div>
+<nav class="flex flex-col">
+<a class="bg-white text-[#1A3D22] font-bold rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">picture_as_pdf</span> Export PDF
+                </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] transition-all px-8 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">description</span> Export DOCX
+                </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] transition-all px-8 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">share</span> Share Link
+                </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] transition-all px-8 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">list_alt</span> Report Sections
+                </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] transition-all px-8 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined">palette</span> Branding
+                </a>
+</nav>
+<div class="mt-auto px-8 border-t border-outline-variant/20 pt-8">
+<div class="flex flex-col gap-4">
+<a class="flex items-center gap-3 text-sm text-[#2E6B40]" href="#">
+<span class="material-symbols-outlined text-lg">help_outline</span> Support
+                    </a>
+<a class="flex items-center gap-3 text-sm text-[#2E6B40]" href="#">
+<span class="material-symbols-outlined text-lg">inventory_2</span> Archive
+                    </a>
+</div>
+</div>
+</div>
+</div>
+</body></html>

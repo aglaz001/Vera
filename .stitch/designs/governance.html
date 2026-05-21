@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Governance Ledger | Vera ESG</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #fdf9f2;
+        }
+        .font-serif-italic {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#00210a",
+                        "secondary-fixed-dim": "#95d5a1",
+                        "on-primary-fixed-variant": "#2b4e32",
+                        "surface": "#fdf9f2",
+                        "error": "#ba1a1a",
+                        "on-background": "#1c1c18",
+                        "surface-bright": "#fdf9f2",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#b0f2bb",
+                        "primary": "#03270e",
+                        "on-secondary-container": "#337045",
+                        "primary-fixed": "#c4edc6",
+                        "tertiary-fixed": "#9ef6b2",
+                        "on-secondary-fixed-variant": "#115129",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#31302c",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f7f3ec",
+                        "secondary-container": "#b0f2bb",
+                        "surface-container-high": "#ebe8e1",
+                        "on-secondary-fixed": "#00210c",
+                        "surface-dim": "#dddad3",
+                        "on-tertiary-container": "#5bb073",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#003f1d",
+                        "on-tertiary-fixed": "#00210c",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1c1c18",
+                        "secondary": "#2d6a3f",
+                        "inverse-on-surface": "#f4f0e9",
+                        "surface-container-highest": "#e6e2db",
+                        "surface-container": "#f1ede6",
+                        "surface-tint": "#436748",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#a8d1ab",
+                        "tertiary-fixed-dim": "#83d998",
+                        "on-primary-container": "#82a885",
+                        "on-surface-variant": "#424841",
+                        "background": "#fdf9f2",
+                        "outline": "#727971",
+                        "primary-container": "#1a3d22",
+                        "outline-variant": "#c2c8bf",
+                        "tertiary": "#00270f",
+                        "primary-fixed-dim": "#a8d1ab",
+                        "on-tertiary-fixed-variant": "#005227",
+                        "surface-variant": "#e6e2db"
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 z-40 bg-[#f7f3ec] dark:bg-stone-900 w-64 border-r-0">
+<div class="px-6 mb-12">
+<h1 class="font-serif italic text-[#1A3D22] text-2xl tracking-tight">Vera</h1>
+<div class="mt-4">
+<p class="font-serif text-[#1A3D22] text-lg">The Living Ledger</p>
+<p class="text-stone-500 font-light text-xs uppercase tracking-widest">Archivist Mode</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 text-stone-600 hover:pl-6 transition-all py-2 group" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-[#1A3D22] font-bold bg-[#e6e2db] rounded-l-full pl-4 py-2 group" href="#">
+<span class="material-symbols-outlined text-xl">edit_note</span>
+<span class="font-medium text-sm">Data Entry</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 hover:pl-6 transition-all py-2 group" href="#">
+<span class="material-symbols-outlined text-xl">cloud_upload</span>
+<span class="font-medium text-sm">Evidence Vault</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 hover:pl-6 transition-all py-2 group" href="#">
+<span class="material-symbols-outlined text-xl">history</span>
+<span class="font-medium text-sm">Audit Log</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 hover:pl-6 transition-all py-2 group" href="#">
+<span class="material-symbols-outlined text-xl">group</span>
+<span class="font-medium text-sm">Team</span>
+</a>
+</nav>
+<div class="px-4 mt-auto pt-8 border-t border-stone-200/50 space-y-2">
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-medium text-sm mb-6 shadow-sm hover:opacity-90 active:scale-95 transition-all">
+                Submit Audit
+            </button>
+<a class="flex items-center gap-3 text-stone-600 hover:pl-6 transition-all py-2" href="#">
+<span class="material-symbols-outlined text-xl">help</span>
+<span class="font-medium text-sm">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 hover:pl-6 transition-all py-2" href="#">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span class="font-medium text-sm">Sign Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-12 max-w-[1200px] mx-auto">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="flex items-center gap-2 text-secondary mb-4">
+<span class="material-symbols-outlined text-sm">shield_person</span>
+<span class="text-xs font-medium uppercase tracking-[0.2em]">Governance Module</span>
+</div>
+<h1 class="text-[3.5rem] font-serif-italic leading-none text-primary mb-4">Governance Ledger</h1>
+<p class="text-stone-500 font-light text-xl max-w-2xl">The structure of accountability and ethics—documenting the integrity of corporate leadership.</p>
+</header>
+<div class="space-y-12">
+<!-- Section 1: Board Composition -->
+<section class="grid grid-cols-12 gap-8 items-start">
+<div class="col-span-4">
+<h2 class="text-2xl font-serif text-primary mb-2">Board Composition</h2>
+<p class="text-sm text-stone-500 leading-relaxed">Defining the separation of powers and diversity of thought within the highest level of oversight.</p>
+<div class="mt-6 p-6 bg-surface-container-low rounded-[1rem] italic text-primary-container text-sm border-l-4 border-secondary">
+<p class="font-serif-italic">"Why this matters: Independent oversight is the primary safeguard against concentrated executive power and long-term risk."</p>
+</div>
+</div>
+<div class="col-span-8 bg-surface-container-lowest p-8 rounded-[1rem] shadow-[0_8px_24px_rgba(15,32,20,0.04)]">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<label class="block text-xs font-medium uppercase tracking-wider text-stone-400 mb-2">Independence %</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary py-3 text-2xl font-light text-primary transition-colors" placeholder="e.g. 75" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-medium uppercase tracking-wider text-stone-400 mb-2">Average Tenure (Years)</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary py-3 text-2xl font-light text-primary transition-colors" placeholder="e.g. 4.2" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Ethics & Compliance -->
+<section class="grid grid-cols-12 gap-8 items-start">
+<div class="col-span-4">
+<h2 class="text-2xl font-serif text-primary mb-2">Ethics &amp; Compliance</h2>
+<p class="text-sm text-stone-500 leading-relaxed">Monitoring the health of organizational culture through reporting and security benchmarks.</p>
+<div class="mt-6 p-6 bg-surface-container-low rounded-[1rem] italic text-primary-container text-sm border-l-4 border-secondary">
+<p class="font-serif-italic">"Why this matters: Transparency in whistleblower trends indicates a culture where employees feel safe to voice ethical concerns."</p>
+</div>
+</div>
+<div class="col-span-8 bg-surface-container-lowest p-8 rounded-[1rem] shadow-[0_8px_24px_rgba(15,32,20,0.04)]">
+<div class="grid grid-cols-2 gap-8">
+<div>
+<label class="block text-xs font-medium uppercase tracking-wider text-stone-400 mb-2">Whistleblower cases</label>
+<div class="flex items-end gap-4">
+<input class="w-24 bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary py-3 text-2xl font-light text-primary" type="number" value="0"/>
+<span class="text-stone-400 pb-4 text-sm font-medium">Recorded incidents</span>
+</div>
+</div>
+<div>
+<label class="block text-xs font-medium uppercase tracking-wider text-stone-400 mb-2">Data Breaches</label>
+<div class="flex items-end gap-4">
+<input class="w-24 bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary py-3 text-2xl font-light text-primary" type="number" value="0"/>
+<span class="text-stone-400 pb-4 text-sm font-medium">Critical events</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Policy Documentation & Uploads -->
+<section class="grid grid-cols-12 gap-8 items-start">
+<div class="col-span-4">
+<h2 class="text-2xl font-serif text-primary mb-2">Policy Documentation</h2>
+<p class="text-sm text-stone-500 leading-relaxed">The codified rules of engagement that define the ethical boundaries of the enterprise.</p>
+</div>
+<div class="col-span-8 space-y-6">
+<div class="bg-surface-container-lowest p-8 rounded-[1rem] shadow-[0_8px_24px_rgba(15,32,20,0.04)]">
+<div class="space-y-6">
+<!-- Policy Item 1 -->
+<div class="flex items-center justify-between py-4 border-b border-stone-100">
+<div>
+<h4 class="font-medium text-primary">Code of Ethics</h4>
+<p class="text-xs text-stone-400">Mandatory annual update</p>
+</div>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-[#EAF5ED] text-secondary rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+                                        Active
+                                    </span>
+<button class="text-stone-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">description</span>
+</button>
+</div>
+</div>
+<!-- Policy Item 2 -->
+<div class="flex items-center justify-between py-4 border-b border-stone-100">
+<div>
+<h4 class="font-medium text-primary">Anti-corruption policy</h4>
+<p class="text-xs text-stone-400">Global compliance standard</p>
+</div>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-highest text-stone-500 rounded-full text-[10px] font-bold uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-stone-400 rounded-full"></span>
+                                        Pending
+                                    </span>
+<button class="text-stone-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">upload_file</span>
+</button>
+</div>
+</div>
+</div>
+<!-- File Upload Zone -->
+<div class="mt-8 border-2 border-dashed border-outline-variant rounded-[1rem] p-12 text-center group hover:border-secondary transition-colors cursor-pointer bg-surface/50">
+<span class="material-symbols-outlined text-4xl text-stone-300 group-hover:text-secondary mb-4">cloud_upload</span>
+<h5 class="text-primary font-medium">Upload Official Documents</h5>
+<p class="text-stone-400 text-sm mt-1">Drag and drop signed PDF or DOCX files here</p>
+<p class="text-[10px] uppercase tracking-widest text-stone-300 mt-4 font-bold">Max file size 25MB</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Action Bar -->
+<footer class="flex justify-between items-center pt-12 pb-24 border-t border-stone-100 mt-12">
+<div class="flex items-center gap-3 text-stone-400">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="text-xs font-medium">Last saved: 14 minutes ago by Archivist J. Sterling</span>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 rounded-full border border-outline text-primary font-medium text-sm hover:bg-surface-container-low transition-colors active:scale-95">
+                        Save as Draft
+                    </button>
+<button class="px-8 py-3 rounded-full bg-primary text-on-primary font-medium text-sm hover:opacity-90 shadow-lg active:scale-95 transition-all">
+                        Save &amp; Continue
+                    </button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Side Decorative Detail (Editorial Touch) -->
+<div class="fixed right-8 top-1/2 -translate-y-1/2 hidden xl:block">
+<div class="flex flex-col gap-12 items-center opacity-20">
+<div class="h-32 w-px bg-primary"></div>
+<p class="rotate-90 origin-center whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.5em] text-primary">Volume 04 // Governance</p>
+<div class="h-32 w-px bg-primary"></div>
+</div>
+</div>
+</body></html>

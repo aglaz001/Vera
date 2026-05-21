@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compliance Checker | Vera Platform</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed": "#00210c",
+              "tertiary": "#00270f",
+              "on-secondary-fixed": "#00210c",
+              "on-tertiary-fixed-variant": "#005227",
+              "on-primary": "#ffffff",
+              "primary-container": "#1a3d22",
+              "on-error": "#ffffff",
+              "outline-variant": "#c2c8bf",
+              "secondary": "#2d6a3f",
+              "inverse-primary": "#a8d1ab",
+              "on-primary-container": "#82a885",
+              "outline": "#727971",
+              "on-secondary-container": "#337045",
+              "on-primary-fixed-variant": "#2b4e32",
+              "surface-dim": "#dddad3",
+              "surface": "#fdf9f2",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#00210a",
+              "on-background": "#1c1c18",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#a8d1ab",
+              "on-tertiary-container": "#5bb073",
+              "surface-variant": "#e6e2db",
+              "secondary-fixed": "#b0f2bb",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#c4edc6",
+              "inverse-on-surface": "#f4f0e9",
+              "surface-container-highest": "#e6e2db",
+              "inverse-surface": "#31302c",
+              "on-secondary-fixed-variant": "#115129",
+              "surface-container-low": "#f7f3ec",
+              "tertiary-container": "#003f1d",
+              "background": "#fdf9f2",
+              "tertiary-fixed": "#9ef6b2",
+              "surface-bright": "#fdf9f2",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#b0f2bb",
+              "primary": "#03270e",
+              "on-surface-variant": "#424841",
+              "surface-container": "#f1ede6",
+              "secondary-fixed-dim": "#95d5a1",
+              "surface-tint": "#436748",
+              "surface-container-high": "#ebe8e1",
+              "on-surface": "#1c1c18",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#83d998"
+            },
+            fontFamily: {
+              "headline": ["Instrument Serif", "serif"],
+              "body": ["DM Sans", "sans-serif"],
+              "label": ["DM Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fdf9f2;
+      }
+      h1, h2, h3 {
+        font-family: 'Instrument Serif', serif;
+      }
+      .editorial-indent {
+        padding-left: clamp(0rem, 5vw, 4rem);
+      }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fdf9f2] dark:bg-stone-950 opacity-80 backdrop-blur-md shadow-[0_8px_24px_rgba(15,32,20,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-[1200px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-serif italic text-[#1A3D22] dark:text-[#EAF5ED]">Vera</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-[#727971] hover:text-[#1A3D22] transition-colors duration-200" href="#">Organizations</a>
+<a class="text-[#727971] hover:text-[#1A3D22] transition-colors duration-200" href="#">Help</a>
+<a class="text-[#727971] hover:text-[#1A3D22] transition-colors duration-200" href="#">Notifications</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#EAF5ED] rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined text-[#1A3D22]">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="close-up portrait of a professional man with a neutral expression in natural soft indoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsIcshB1etoKijSzJ-DAiK2SW5RMmvyTzHPCsSkR3zsHHyctRWTgWuveS13_drPbIm5g8MXW75wWEv13rpH7QswWaXR0Wc1SqXlfRokeilyn8P5QD_5kNcMHe32XtLSTYU4IVwAXES_Hj2wF_4Tl5e-71EA5vozA97zw_8HP_P285h1_ThRK2fOC0CPQEm9XhFrd-MyYxsFwyfg_zWX3zoiTUvREapHF8bOMNdBKmsE-Hh7pjA8gwB4zEp1X2-Hd-Z6TNjR2sz1w"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-20 bg-[#f7f3ec] dark:bg-stone-900 flex flex-col h-full py-6 hidden lg:flex">
+<div class="px-6 mb-8">
+<h2 class="text-xl text-[#1A3D22] font-serif">Vera SME</h2>
+<p class="text-xs text-[#727971] uppercase tracking-widest">Angola Division</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">eco</span> Environmental
+            </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">group</span> Social
+            </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">gavel</span> Governance
+            </a>
+<a class="bg-[#ffffff] text-[#1A3D22] font-bold rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span> Compliance
+            </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">auto_awesome</span> AI Narrative
+            </a>
+<a class="text-[#2E6B40] hover:bg-[#e6e2db] rounded-l-full ml-4 pl-4 py-3 flex items-center gap-3 transition-all" href="#">
+<span class="material-symbols-outlined">description</span> Reports
+            </a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded-full font-medium text-sm transition-transform active:scale-95">
+                Submit Report
+            </button>
+<div class="pt-4 border-t border-outline-variant/20">
+<a class="flex items-center gap-3 text-[#2E6B40] py-2 hover:text-[#1A3D22]" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+<a class="flex items-center gap-3 text-[#2E6B40] py-2 hover:text-[#1A3D22]" href="#">
+<span class="material-symbols-outlined">help_outline</span> Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:ml-64 pt-24 pb-12 px-8 min-h-screen">
+<div class="max-w-[1000px] mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
+<div>
+<h1 class="text-5xl md:text-6xl text-primary mb-2">Compliance <span class="italic font-light">status</span></h1>
+<p class="text-outline max-w-md font-light leading-relaxed">
+                        An overview of your organization's alignment with global sustainability frameworks. Data reflects the Q3 reporting cycle.
+                    </p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full flex items-center gap-2 hover:opacity-90 transition-all shadow-md">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Export gap report as PDF
+                </button>
+</header>
+<!-- Framework Toggle & Filter -->
+<div class="bg-surface-container-low rounded-xl p-1 mb-8 inline-flex items-center">
+<button class="px-8 py-2 rounded-lg bg-surface-container-lowest text-primary font-medium shadow-sm">GRI</button>
+<button class="px-8 py-2 rounded-lg text-outline hover:text-primary transition-colors">CSRD</button>
+<button class="px-8 py-2 rounded-lg text-outline hover:text-primary transition-colors">TCFD</button>
+</div>
+<!-- Compliance List -->
+<section class="space-y-4">
+<!-- Row 1: Complete -->
+<div class="group bg-surface-container-lowest rounded-[14px] border border-surface-variant transition-all hover:shadow-[0_8px_24px_rgba(15,32,20,0.04)] overflow-hidden">
+<div class="flex items-center justify-between p-6 cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_8px_rgba(45,106,63,0.4)]"></div>
+<div>
+<h3 class="text-xl text-primary">GRI 302: Energy 2016</h3>
+<p class="text-sm text-outline font-light">Management approach and disclosures on energy consumption.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-medium uppercase tracking-widest text-secondary bg-secondary/10 px-3 py-1 rounded-full">Complete</span>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Partial (Expanded) -->
+<div class="bg-surface-container-lowest rounded-[14px] border border-surface-variant shadow-[0_12px_32px_rgba(15,32,20,0.08)] overflow-hidden">
+<div class="flex items-center justify-between p-6 border-b border-surface-variant/50">
+<div class="flex items-center gap-6">
+<div class="w-3 h-3 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.4)]"></div>
+<div>
+<h3 class="text-xl text-primary">GRI 305: Emissions 2016</h3>
+<p class="text-sm text-outline font-light">Direct (Scope 1) and Indirect (Scope 2 &amp; 3) GHG emissions.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-medium uppercase tracking-widest text-orange-600 bg-orange-50 px-3 py-1 rounded-full">Partial</span>
+<span class="material-symbols-outlined text-primary rotate-90">chevron_right</span>
+</div>
+</div>
+<!-- Expanded Content -->
+<div class="p-8 bg-surface/30">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 editorial-indent">
+<div class="space-y-6">
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-3">Gap Analysis</h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-error text-lg">close</span>
+                                            Missing 305-3: Other indirect (Scope 3) GHG emissions data for logistics.
+                                        </li>
+<li class="flex items-start gap-3 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg">check</span>
+                                            Validated: 305-1 and 305-2 (Direct and Energy Indirect).
+                                        </li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary font-medium hover:underline group" href="#">
+                                    Fill missing data in Form 12-B
+                                    <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="space-y-4">
+<h4 class="text-xs font-bold uppercase tracking-widest text-primary mb-1">Requirement Insight</h4>
+<p class="text-sm italic font-serif leading-relaxed text-primary/80">
+                                    "Disclosure 305-3 requires organizations to report on indirect emissions that occur in their value chain. For SMEs in the manufacturing sector, these often represent the most significant portion of the total carbon footprint, making them essential for stakeholder transparency."
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: Missing -->
+<div class="group bg-surface-container-lowest rounded-[14px] border border-surface-variant transition-all hover:shadow-[0_8px_24px_rgba(15,32,20,0.04)] overflow-hidden">
+<div class="flex items-center justify-between p-6 cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-3 h-3 rounded-full bg-error shadow-[0_0_8px_rgba(186,26,26,0.4)]"></div>
+<div>
+<h3 class="text-xl text-primary">GRI 403: Occupational Health &amp; Safety</h3>
+<p class="text-sm text-outline font-light">Disclosures related to worker health, safety systems, and training.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-medium uppercase tracking-widest text-error bg-error/10 px-3 py-1 rounded-full">Missing</span>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Row 4: Complete -->
+<div class="group bg-surface-container-lowest rounded-[14px] border border-surface-variant transition-all hover:shadow-[0_8px_24px_rgba(15,32,20,0.04)] overflow-hidden">
+<div class="flex items-center justify-between p-6 cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_8px_rgba(45,106,63,0.4)]"></div>
+<div>
+<h3 class="text-xl text-primary">GRI 2-27: Compliance with Laws</h3>
+<p class="text-sm text-outline font-light">Significant instances of non-compliance with laws and regulations.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-medium uppercase tracking-widest text-secondary bg-secondary/10 px-3 py-1 rounded-full">Complete</span>
+<span class="material-symbols-outlined text-outline transition-transform group-hover:translate-x-1">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Stats Section (Bento Style) -->
+<section class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-primary-container text-on-primary-container p-8 rounded-[14px] relative overflow-hidden flex flex-col justify-between min-h-[240px]">
+<div class="relative z-10">
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] mb-2 opacity-70">Alignment Progress</h4>
+<div class="flex items-baseline gap-2 mb-6">
+<span class="text-6xl font-headline italic">74<span class="text-3xl not-italic opacity-60">%</span></span>
+</div>
+<div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-on-tertiary-container w-[74%]"></div>
+</div>
+</div>
+<p class="relative z-10 text-sm opacity-80 leading-relaxed font-light mt-4">
+                        You have addressed 26 of 35 core GRI disclosures. Complete the remaining Social disclosures to achieve full alignment.
+                    </p>
+<!-- Abstract Botanical Backdrop -->
+<div class="absolute right-0 bottom-0 opacity-20 pointer-events-none translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-[14px] border border-surface-variant flex flex-col justify-between">
+<div>
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] mb-4 text-primary">Priority Focus</h4>
+<div class="space-y-4">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-xl">gavel</span>
+</div>
+<div class="text-sm">
+<p class="font-medium text-primary">Governance Audit</p>
+<p class="text-outline">Due in 12 days</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-xl">oil_barrel</span>
+</div>
+<div class="text-sm">
+<p class="font-medium text-primary">Waste Inventory</p>
+<p class="text-outline">Requires update</p>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full text-center py-2 text-sm text-secondary hover:text-primary border-t border-surface-variant mt-6">
+                        View All Tasks
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-md border-t border-surface-variant/30 flex justify-around py-3 px-4 z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined">eco</span>
+<span class="text-[10px] font-medium">Nature</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="text-[10px] font-medium">Verify</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-medium">Reports</span>
+</button>
+</nav>
+</body></html>

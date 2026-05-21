@@ -5,6 +5,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ─── CSS Houdini: Animatable ring property ───────────────────────────── */
+@property --ring-pct {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: false;
+}
+
 @theme {
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -36,6 +43,29 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  /* ── Vera Design Tokens ─────────────────────────────────────────────── */
+  --color-surface-container-lowest: #ffffff;
+  --color-on-background: #1c1c18;
+  --color-surface: #fdf9f2;
+  --color-primary: #03270e;
+  --color-surface-container-low: #f7f3ec;
+  --color-surface-container-high: #ebe8e1;
+  --color-surface-container-highest: #e6e2db;
+  --color-surface-container: #f1ede6;
+  --color-secondary: #1a4d2e;
+  --color-outline-variant: #8a9a8e;
+  --color-primary-container: #1a3d22;
+  --color-outline: #4a5449;
+  --color-background: #fdf9f2;
+  --color-surface-variant: #e6e2db;
+  --color-on-surface-variant: #1e2a1f;
+  --color-on-surface: #0a0f0b;
+  --color-error: #ba1a1a;
+
+  --font-headline: 'Instrument Serif', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-label: 'DM Sans', sans-serif;
 }
 
 @layer base {
@@ -102,8 +132,11 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+
+  /* ── Vera brand override: secondary = forest green, not near-white ── */
+  --secondary: #1a4d2e;
+  --secondary-foreground: #ffffff;
+
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -160,4 +193,237 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   KEYFRAME ANIMATIONS
+   ───────────────────────────────────────────────────────────────────────── */
+
+@keyframes vera-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vera-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes vera-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Progress bar: grows from left via scaleX */
+@keyframes vera-bar-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Chart bars: grow upward from bottom via scaleY */
+@keyframes vera-chart-grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* Animated ring via @property --ring-pct */
+@keyframes vera-ring-draw {
+  from { --ring-pct: 0; }
+  to   { --ring-pct: var(--ring-target, 0); }
+}
+
+/* Subtle floating for logo */
+@keyframes vera-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* Film grain motion */
+@keyframes vera-grain {
+  0%, 100% { transform: translate(0, 0); }
+  10%  { transform: translate(-5%, -10%); }
+  20%  { transform: translate(-15%, 5%); }
+  30%  { transform: translate(7%, -25%); }
+  40%  { transform: translate(-5%, 25%); }
+  50%  { transform: translate(-15%, 10%); }
+  60%  { transform: translate(15%, 0%); }
+  70%  { transform: translate(0%, 15%); }
+  80%  { transform: translate(3%, 35%); }
+  90%  { transform: translate(-10%, 10%); }
+}
+
+/* Notification dot pulse */
+@keyframes vera-notif {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(186, 26, 26, 0.5);
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 6px rgba(186, 26, 26, 0);
+  }
+}
+
+/* Shimmer for loading states */
+@keyframes vera-shimmer {
+  from { background-position: -800px 0; }
+  to   { background-position:  800px 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ANIMATION UTILITY CLASSES
+   ───────────────────────────────────────────────────────────────────────── */
+
+.vera-fade-up {
+  animation: vera-fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.vera-fade-in {
+  animation: vera-fade-in 0.5s ease both;
+}
+
+.vera-slide-left {
+  animation: vera-slide-left 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Progress bars — apply to the inner fill div, parent must overflow-hidden */
+.vera-bar {
+  transform-origin: left center;
+  animation: vera-bar-fill 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Chart bars — apply to each bar column */
+.vera-chart-bar {
+  transform-origin: bottom center;
+  animation: vera-chart-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Score ring — needs --ring-target custom prop set inline */
+.vera-ring {
+  animation: vera-ring-draw 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Logo hover float */
+.vera-float {
+  animation: vera-float 5s ease-in-out infinite;
+}
+
+/* ─── Stagger delays ──────────────────────────────────────────────────── */
+.d-0   { animation-delay:    0ms; }
+.d-50  { animation-delay:   50ms; }
+.d-100 { animation-delay:  100ms; }
+.d-150 { animation-delay:  150ms; }
+.d-200 { animation-delay:  200ms; }
+.d-250 { animation-delay:  250ms; }
+.d-300 { animation-delay:  300ms; }
+.d-350 { animation-delay:  350ms; }
+.d-400 { animation-delay:  400ms; }
+.d-450 { animation-delay:  450ms; }
+.d-500 { animation-delay:  500ms; }
+.d-600 { animation-delay:  600ms; }
+.d-700 { animation-delay:  700ms; }
+.d-800 { animation-delay:  800ms; }
+.d-900 { animation-delay:  900ms; }
+.d-1000 { animation-delay: 1000ms; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FILM GRAIN OVERLAY  (fixed, full-viewport, pointer-events none)
+   ───────────────────────────────────────────────────────────────────────── */
+
+body::after {
+  content: '';
+  position: fixed;
+  top:    -50%;
+  left:   -50%;
+  width:   200%;
+  height:  200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 280px 280px;
+  opacity: 0.030;
+  pointer-events: none;
+  z-index: 9998;
+  animation: vera-grain 8s steps(10) infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CUSTOM SCROLLBAR
+   ───────────────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  {
+  background-color: #c8cfc9;
+  border-radius: 99px;
+  transition: background-color 0.2s;
+}
+::-webkit-scrollbar-thumb:hover { background-color: #5a6159; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PAGE TRANSITION  (applied to <main> via key re-mount in Layout)
+   ───────────────────────────────────────────────────────────────────────── */
+
+.vera-page {
+  animation: vera-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   NOTIFICATION DOT OVERRIDE
+   ───────────────────────────────────────────────────────────────────────── */
+
+.vera-notif-dot {
+  animation: vera-notif 2.4s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CARD BASE — subtle lift + shadow
+   ───────────────────────────────────────────────────────────────────────── */
+
+.vera-card {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.vera-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(3, 39, 14, 0.10);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   SIDEBAR ACTIVE GLOW
+   ───────────────────────────────────────────────────────────────────────── */
+
+.vera-nav-active {
+  position: relative;
+  background: linear-gradient(135deg, #1a3d22 0%, #0f2b17 100%);
+  box-shadow: 0 4px 16px rgba(26, 61, 34, 0.35),
+              inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.vera-nav-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: #83d998;
+  box-shadow: 0 0 10px rgba(131, 217, 152, 0.7);
+}
+
+/* Toast slide-up animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }

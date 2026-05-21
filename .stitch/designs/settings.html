@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings &amp; Configuration | Vera ESG</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#b0f2bb",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#a8d1ab",
+              "tertiary-container": "#003f1d",
+              "on-secondary-fixed-variant": "#115129",
+              "outline-variant": "#c2c8bf",
+              "surface-container-high": "#ebe8e1",
+              "on-surface": "#1c1c18",
+              "secondary": "#2d6a3f",
+              "surface-variant": "#e6e2db",
+              "surface-tint": "#436748",
+              "inverse-surface": "#31302c",
+              "primary": "#03270e",
+              "surface-bright": "#fdf9f2",
+              "outline": "#727971",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#337045",
+              "surface-dim": "#dddad3",
+              "secondary-fixed-dim": "#95d5a1",
+              "on-background": "#1c1c18",
+              "on-tertiary-container": "#5bb073",
+              "on-surface-variant": "#424841",
+              "primary-container": "#1a3d22",
+              "on-tertiary-fixed": "#00210c",
+              "on-primary-fixed-variant": "#2b4e32",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#82a885",
+              "on-tertiary-fixed-variant": "#005227",
+              "error-container": "#ffdad6",
+              "surface-container": "#f1ede6",
+              "surface-container-lowest": "#ffffff",
+              "background": "#fdf9f2",
+              "surface": "#fdf9f2",
+              "primary-fixed": "#c4edc6",
+              "inverse-on-surface": "#f4f0e9",
+              "tertiary-fixed-dim": "#83d998",
+              "tertiary": "#00270f",
+              "tertiary-fixed": "#9ef6b2",
+              "surface-container-highest": "#e6e2db",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#a8d1ab",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#00210a",
+              "on-secondary-fixed": "#00210c",
+              "surface-container-low": "#f7f3ec",
+              "secondary-fixed": "#b0f2bb"
+            },
+            fontFamily: {
+              "serif": ["Instrument Serif", "serif"],
+              "sans": ["DM Sans", "sans-serif"],
+              "headline": ["Instrument Serif", "serif"],
+              "body": ["DM Sans", "sans-serif"],
+              "label": ["DM Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fdf9f2;
+            font-family: 'DM Sans', sans-serif;
+            color: #1c1c18;
+        }
+        .serif-italic {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#fdf9f2] dark:bg-stone-950/80 backdrop-blur-xl shadow-[0_8px_24px_rgba(15,32,20,0.06)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1200px] mx-auto">
+<div class="text-2xl font-serif italic text-[#1A3D22] dark:text-[#EAF5ED]">Vera</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-stone-500 dark:text-stone-400 font-normal hover:text-[#2E6B40] transition-colors duration-300" href="#">Dashboard</a>
+<a class="text-stone-500 dark:text-stone-400 font-normal hover:text-[#2E6B40] transition-colors duration-300" href="#">Reports</a>
+<a class="text-stone-500 dark:text-stone-400 font-normal hover:text-[#2E6B40] transition-colors duration-300" href="#">Analysis</a>
+<a class="text-[#1A3D22] dark:text-[#5AAF72] border-b-2 border-[#1A3D22] pb-1 font-medium hover:text-[#2E6B40] transition-colors duration-300" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">settings</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a woman in business attire with soft natural lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT_RDPXIK1yO9qrRl6rBwSE0-gUzEB67mFUDz24iUNagC5K_NmGt7EZ4dmNrgum0goVZ1Mga84tgg7aRosfJMsbuaZd-85QLyS20rcKFodcYoMc4bldDw4za_D81WmDrJHk2s61ecWviJwgAHnloh2t9eTvOPWBY_wwflRkh0OunWDQEIsKmWARa0HnzUB7KeK9dklzI5X_LUN3TFpbJMvKcVBsEyeMBJUS3R38v-X2DtPK2FNJ4rLCg8lUWnaop_s2PWuRrqohg"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-80px)] w-64 bg-[#f7f3ec] dark:bg-stone-900 flex flex-col p-6 rounded-r-[14px] hidden lg:flex">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h3 class="font-serif text-lg leading-tight text-[#1A3D22]">Vera Admin</h3>
+<p class="text-[10px] uppercase tracking-wider text-stone-500 font-medium">Management Console</p>
+</div>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center gap-3 bg-[#ffffff] dark:bg-stone-800 text-[#1A3D22] dark:text-[#5AAF72] rounded-full px-4 py-2 shadow-sm transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+<span class="text-sm font-medium">Organization Profile</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-2 hover:bg-[#e6e2db] dark:hover:bg-stone-800 rounded-full transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-sm font-medium">Team Members</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-2 hover:bg-[#e6e2db] dark:hover:bg-stone-800 rounded-full transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="text-sm font-medium">Billing</span>
+</a>
+<a class="flex items-center gap-3 text-stone-600 dark:text-stone-400 px-4 py-2 hover:bg-[#e6e2db] dark:hover:bg-stone-800 rounded-full transition-all duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+<span class="text-sm font-medium">Frameworks</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-surface-container rounded-xl">
+<p class="serif-italic text-primary text-sm mb-2">Institutional Insight</p>
+<p class="text-[11px] leading-relaxed text-on-surface-variant">Your current sustainability rating is in the top 15% of your sector.</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-64 pt-24 pb-20 px-8 max-w-[1000px] mx-auto min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<h1 class="text-5xl font-serif text-[#1A3D22] mb-2">Settings &amp; Configuration</h1>
+<p class="text-stone-500 font-light max-w-lg">Refine your institutional identity, manage your advisory team, and select the reporting frameworks that define your environmental impact.</p>
+</header>
+<!-- Profile Section -->
+<section class="mb-16">
+<div class="flex items-baseline justify-between mb-8">
+<h2 class="text-2xl font-serif text-primary">Organization Profile</h2>
+<div class="h-px flex-1 mx-8 bg-outline-variant opacity-20"></div>
+</div>
+<div class="bg-surface-container-low rounded-[14px] p-8">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant">Company Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors py-2 px-0 text-primary font-medium" type="text" value="Veridian Global Holdings"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant">Sector</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors py-2 px-0 text-primary font-medium">
+<option>Renewable Energy &amp; Infrastructure</option>
+<option>Financial Services</option>
+<option>Sustainable Agriculture</option>
+<option>Ethical Manufacturing</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant">Primary ESG Contact Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors py-2 px-0 text-primary font-medium" type="text" value="Elena Thorne"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-medium uppercase tracking-widest text-on-surface-variant">Contact Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-colors py-2 px-0 text-primary font-medium" type="email" value="e.thorne@veridianglobal.com"/>
+</div>
+<div class="md:col-span-2 pt-4 flex justify-end">
+<button class="bg-primary text-on-primary px-10 py-3 rounded-full font-medium text-sm hover:opacity-90 transition-opacity shadow-sm" type="submit">
+                            Save Changes
+                        </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Team Members Section -->
+<section class="mb-16">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-serif text-primary">Team Members</h2>
+<button class="flex items-center gap-2 text-primary font-medium text-sm border border-outline px-4 py-2 rounded-full hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    Invite Member
+                </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-separate border-spacing-y-3">
+<thead>
+<tr class="text-xs font-medium uppercase tracking-widest text-stone-500">
+<th class="px-6 py-2">Name</th>
+<th class="px-6 py-2">Role</th>
+<th class="px-6 py-2">Status</th>
+<th class="px-6 py-2 text-right">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-surface-container-low transition-colors hover:bg-surface-variant">
+<td class="px-6 py-4 rounded-l-[14px]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-[10px] font-bold text-primary">ET</div>
+<span class="font-medium">Elena Thorne</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Admin</span>
+</td>
+<td class="px-6 py-4 text-sm text-secondary font-medium">Active</td>
+<td class="px-6 py-4 rounded-r-[14px] text-right">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer">more_vert</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low transition-colors hover:bg-surface-variant">
+<td class="px-6 py-4 rounded-l-[14px]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-[10px] font-bold text-secondary">JB</div>
+<span class="font-medium">Julian Banks</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Editor</span>
+</td>
+<td class="px-6 py-4 text-sm text-secondary font-medium">Active</td>
+<td class="px-6 py-4 rounded-r-[14px] text-right">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer">more_vert</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low transition-colors hover:bg-surface-variant opacity-70">
+<td class="px-6 py-4 rounded-l-[14px]">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-[10px] font-bold text-stone-400">SR</div>
+<span class="font-medium italic">Sarah Reed</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter">Editor</span>
+</td>
+<td class="px-6 py-4 text-sm text-stone-400 font-medium italic">Pending</td>
+<td class="px-6 py-4 rounded-r-[14px] text-right">
+<span class="text-xs text-primary underline cursor-pointer">Resend</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Frameworks Section -->
+<section>
+<div class="flex items-baseline justify-between mb-8">
+<h2 class="text-2xl font-serif text-primary">Reporting Frameworks</h2>
+<div class="h-px flex-1 mx-8 bg-outline-variant opacity-20"></div>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- GRI -->
+<div class="p-8 rounded-[14px] bg-[#EAF5ED] flex items-start justify-between">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-xl font-medium text-primary">Global Reporting Initiative (GRI)</h3>
+<span class="bg-primary text-on-primary text-[9px] px-2 py-0.5 rounded-sm uppercase font-bold tracking-widest">Active</span>
+</div>
+<p class="serif-italic text-secondary leading-relaxed mb-4">"The global standard for impact reporting, ensuring transparency across environmental, social, and economic dimensions."</p>
+<p class="text-sm text-on-surface-variant">Last updated: Oct 12, 2023. Compliance level: 94%.</p>
+</div>
+<div class="pt-2">
+<div class="w-12 h-6 bg-primary rounded-full flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full translate-x-6"></div>
+</div>
+</div>
+</div>
+<!-- CSRD -->
+<div class="p-8 rounded-[14px] bg-surface-container-low flex items-start justify-between border-l-4 border-primary">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-xl font-medium text-primary">Corporate Sustainability Reporting Directive (CSRD)</h3>
+</div>
+<p class="serif-italic text-stone-500 leading-relaxed mb-4">"Mandatory European standards designed to elevate the rigor of sustainability disclosures to the level of financial reporting."</p>
+<p class="text-sm text-on-surface-variant">Configuration required for FY 2024 reporting cycle.</p>
+</div>
+<div class="pt-2">
+<div class="w-12 h-6 bg-outline-variant rounded-full flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- TCFD -->
+<div class="p-8 rounded-[14px] bg-surface-container-low flex items-start justify-between">
+<div class="max-w-2xl">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="text-xl font-medium text-primary">Task Force on Climate-related Financial Disclosures (TCFD)</h3>
+</div>
+<p class="serif-italic text-stone-500 leading-relaxed mb-4">"A framework for providing information to investors and lenders about climate-related financial risks."</p>
+<p class="text-sm text-on-surface-variant">Advisory mode enabled. Full integration available in Premium tier.</p>
+</div>
+<div class="pt-2">
+<div class="w-12 h-6 bg-outline-variant rounded-full flex items-center px-1">
+<div class="w-4 h-4 bg-white rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low py-12 mt-20 border-t border-outline-variant/10 lg:ml-64">
+<div class="max-w-[1000px] mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+<div>
+<p class="font-serif italic text-xl text-primary mb-4">Vera</p>
+<p class="text-xs text-stone-500 leading-relaxed">The Living Ledger of Institutional Sustainability. Professional ESG data management for the climate era.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Resources</h4>
+<a class="text-sm text-stone-600 hover:text-primary transition-colors" href="#">Documentation</a>
+<a class="text-sm text-stone-600 hover:text-primary transition-colors" href="#">Methodology</a>
+<a class="text-sm text-stone-600 hover:text-primary transition-colors" href="#">API Reference</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Platform</h4>
+<a class="text-sm text-stone-600 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm text-stone-600 hover:text-primary transition-colors" href="#">Security Standards</a>
+<p class="text-[10px] text-stone-400 mt-4">Version 2.4.1 (Stable)<br/>© 2024 Vera Sustainability Systems</p>
+</div>
+</div>
+</footer>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#fdf9f2] dark:bg-stone-950 px-6 py-4 flex justify-around items-center shadow-[0_-8px_24px_rgba(15,32,20,0.06)] z-50">
+<div class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-medium">Reports</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-[#1A3D22]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+</body></html>
