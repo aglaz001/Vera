@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ProgressRing } from '../components/ui/ProgressRing';
-import { aiSuggestions, aiChatHistory, dashboardKPIs } from '../data/mockData';
+import { aiSuggestions, dashboardKPIs } from '../data/mockData';
 import { useAppContext } from '../context/AppContext';
 
 interface Message {
