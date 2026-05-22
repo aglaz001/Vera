@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { TopNavBar } from './TopNavBar';
 import { DrawerProvider } from '../ui/DetailDrawer';
+import { VeraAIChatWidget } from '../ui/VeraAIChatWidget';
 
 export const Layout: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -29,6 +30,9 @@ export const Layout: React.FC = () => {
             <Outlet />
           </main>
         </div>
+
+        {/* Floating AI chat widget — available on all pages */}
+        <VeraAIChatWidget />
       </div>
     </DrawerProvider>
   );

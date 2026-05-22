@@ -9,38 +9,38 @@ interface SidebarProps {
 
 const NAV_GROUPS = [
   {
-    label: 'Overview',
+    label: { en: 'Overview', pt: 'Visão Geral' },
     items: [
-      { name: 'Dashboard', path: '/', icon: 'dashboard' },
+      { name: { en: 'Dashboard', pt: 'Painel' }, path: '/', icon: 'dashboard' },
     ],
   },
   {
-    label: 'ESG Pillars',
+    label: { en: 'ESG Pillars', pt: 'Pilares ESG' },
     items: [
-      { name: 'Environment', path: '/environment', icon: 'eco' },
-      { name: 'Social', path: '/social', icon: 'group' },
-      { name: 'Governance', path: '/governance', icon: 'gavel' },
+      { name: { en: 'Environment', pt: 'Ambiente' }, path: '/environment', icon: 'eco' },
+      { name: { en: 'Social', pt: 'Social' }, path: '/social', icon: 'group' },
+      { name: { en: 'Governance', pt: 'Governança' }, path: '/governance', icon: 'gavel' },
     ],
   },
   {
-    label: 'Planning',
+    label: { en: 'Planning', pt: 'Planeamento' },
     items: [
-      { name: 'Strategy', path: '/strategy', icon: 'route' },
-      { name: 'Cost Savings', path: '/cost-savings', icon: 'savings' },
+      { name: { en: 'Strategy', pt: 'Estratégia' }, path: '/strategy', icon: 'route' },
+      { name: { en: 'Cost Savings', pt: 'Poupanças' }, path: '/cost-savings', icon: 'savings' },
     ],
   },
   {
-    label: 'Compliance',
+    label: { en: 'Compliance', pt: 'Conformidade' },
     items: [
-      { name: 'Frameworks', path: '/frameworks', icon: 'fact_check' },
-      { name: 'Reports', path: '/reports', icon: 'description' },
+      { name: { en: 'Frameworks', pt: 'Frameworks' }, path: '/frameworks', icon: 'fact_check' },
+      { name: { en: 'Reports', pt: 'Relatórios' }, path: '/reports', icon: 'description' },
     ],
   },
   {
-    label: 'Data',
+    label: { en: 'Data', pt: 'Dados' },
     items: [
-      { name: 'Data Ingestion', path: '/data-ingestion', icon: 'upload_file' },
-      { name: 'Vera AI', path: '/vera-ai', icon: 'auto_awesome' },
+      { name: { en: 'Data Ingestion', pt: 'Ingestão de Dados' }, path: '/data-ingestion', icon: 'upload_file' },
+      { name: { en: 'Vera AI', pt: 'Vera AI' }, path: '/vera-ai', icon: 'auto_awesome' },
     ],
   },
 ];
@@ -48,6 +48,7 @@ const NAV_GROUPS = [
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const navigate = useNavigate();
   const { user } = useAppContext();
+  const lang = user.language;
 
   return (
     <>
@@ -96,16 +97,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         {/* ── Nav groups ────────────────────────────────────────── */}
         <nav className="flex-1 overflow-y-auto px-3 space-y-5">
           {NAV_GROUPS.map((group) => (
-            <div key={group.label}>
+            <div key={group.label.en}>
               <div className="px-3 mb-2">
                 <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-outline opacity-70">
-                  {group.label}
+                  {lang === 'pt' ? group.label.pt : group.label.en}
                 </span>
               </div>
               <div className="space-y-0.5">
                 {group.items.map((item) => (
                   <NavLink
-                    key={item.name}
+                    key={item.name.en}
                     to={item.path}
                     end={item.path === '/'}
                     onClick={() => {
@@ -143,7 +144,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                           </span>
                         </div>
                         <span className="text-[11px] font-bold uppercase tracking-[0.06em]">
-                          {item.name}
+                          {lang === 'pt' ? item.name.pt : item.name.en}
                         </span>
                       </>
                     )}
@@ -190,7 +191,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                     settings
                   </span>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.06em]">Settings</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.06em]">{lang === 'pt' ? 'Definições' : 'Settings'}</span>
               </>
             )}
           </NavLink>

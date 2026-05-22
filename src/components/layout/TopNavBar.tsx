@@ -6,18 +6,18 @@ interface TopNavBarProps {
   toggleSidebar: () => void;
 }
 
-const PAGE_META: Record<string, { title: string; breadcrumb: string }> = {
-  '/':              { title: 'Dashboard', breadcrumb: 'Overview' },
-  '/environment':   { title: 'Environment', breadcrumb: 'ESG · Environment' },
-  '/social':        { title: 'Social', breadcrumb: 'ESG · Social' },
-  '/governance':    { title: 'Governance', breadcrumb: 'ESG · Governance' },
-  '/strategy':      { title: 'Strategy', breadcrumb: 'Planning · Strategy' },
-  '/cost-savings':  { title: 'Cost Savings', breadcrumb: 'Planning · Cost Savings' },
-  '/frameworks':    { title: 'Frameworks', breadcrumb: 'Compliance · Frameworks' },
-  '/reports':       { title: 'Reports', breadcrumb: 'Compliance · Reports' },
-  '/data-ingestion': { title: 'Data Ingestion', breadcrumb: 'Data · Ingestion' },
-  '/vera-ai':       { title: 'Vera AI', breadcrumb: 'Data · AI Assistant' },
-  '/settings':      { title: 'Settings', breadcrumb: 'System · Settings' },
+const PAGE_META: Record<string, { title: { en: string; pt: string }; breadcrumb: { en: string; pt: string } }> = {
+  '/':              { title: { en: 'Dashboard', pt: 'Painel' }, breadcrumb: { en: 'Overview', pt: 'Visão Geral' } },
+  '/environment':   { title: { en: 'Environment', pt: 'Ambiente' }, breadcrumb: { en: 'ESG · Environment', pt: 'ESG · Ambiente' } },
+  '/social':        { title: { en: 'Social', pt: 'Social' }, breadcrumb: { en: 'ESG · Social', pt: 'ESG · Social' } },
+  '/governance':    { title: { en: 'Governance', pt: 'Governança' }, breadcrumb: { en: 'ESG · Governance', pt: 'ESG · Governança' } },
+  '/strategy':      { title: { en: 'Strategy', pt: 'Estratégia' }, breadcrumb: { en: 'Planning · Strategy', pt: 'Planeamento · Estratégia' } },
+  '/cost-savings':  { title: { en: 'Cost Savings', pt: 'Poupanças' }, breadcrumb: { en: 'Planning · Cost Savings', pt: 'Planeamento · Poupanças' } },
+  '/frameworks':    { title: { en: 'Frameworks', pt: 'Frameworks' }, breadcrumb: { en: 'Compliance · Frameworks', pt: 'Conformidade · Frameworks' } },
+  '/reports':       { title: { en: 'Reports', pt: 'Relatórios' }, breadcrumb: { en: 'Compliance · Reports', pt: 'Conformidade · Relatórios' } },
+  '/data-ingestion': { title: { en: 'Data Ingestion', pt: 'Ingestão de Dados' }, breadcrumb: { en: 'Data · Ingestion', pt: 'Dados · Ingestão' } },
+  '/vera-ai':       { title: { en: 'Vera AI', pt: 'Vera AI' }, breadcrumb: { en: 'Data · AI Assistant', pt: 'Dados · Assistente IA' } },
+  '/settings':      { title: { en: 'Settings', pt: 'Definições' }, breadcrumb: { en: 'System · Settings', pt: 'Sistema · Definições' } },
 };
 
 export const TopNavBar: React.FC<TopNavBarProps> = ({ toggleSidebar }) => {
@@ -39,7 +39,10 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({ toggleSidebar }) => {
     return () => document.removeEventListener('mousedown', handler);
   }, []);
 
-  const meta = PAGE_META[path] || { title: 'Vera', breadcrumb: 'Platform' };
+  const lang = user.language;
+  const rawMeta = PAGE_META[path] || { title: { en: 'Vera', pt: 'Vera' }, breadcrumb: { en: 'Platform', pt: 'Plataforma' } };
+  const meta = { title: lang === 'pt' ? rawMeta.title.pt : rawMeta.title.en, breadcrumb: lang === 'pt' ? rawMeta.breadcrumb.pt : rawMeta.breadcrumb.en };
+  const t = (en: string, pt: string) => lang === 'pt' ? pt : en;
 
   return (
     <header
@@ -86,7 +89,7 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({ toggleSidebar }) => {
             onClick={() => navigate('/vera-ai')}
           >
             <span className="material-symbols-outlined text-[16px]">search</span>
-            <span className="hidden md:inline">Ask Vera AI...</span>
+            <span className="hidden md:inline">{t('Ask Vera AI...', 'Perguntar à Vera AI...')}</span>
           </button>
 
           <div className="h-6 w-px bg-outline-variant/30 hidden sm:block" />
@@ -106,7 +109,7 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({ toggleSidebar }) => {
             {showNotif && (
               <div className="absolute right-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-2xl border border-outline-variant/20 overflow-hidden z-50" style={{ boxShadow: '0 16px 56px rgba(3,39,14,0.18)' }}>
                 <div className="p-4 border-b border-outline-variant/20">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">Notifications</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">{t('Notifications', 'Notificações')}</p>
                 </div>
                 <div className="divide-y divide-outline-variant/15">
                   <button onClick={() => { navigate('/frameworks'); setShowNotif(false); }} className="w-full text-left p-4 hover:bg-surface-container-lowest transition-colors cursor-pointer flex gap-3 items-start">
@@ -161,11 +164,11 @@ export const TopNavBar: React.FC<TopNavBarProps> = ({ toggleSidebar }) => {
                 <div className="py-1">
                   <button onClick={() => { navigate('/settings'); setShowUser(false); }} className="w-full text-left px-5 py-3 hover:bg-surface-container-lowest transition-colors cursor-pointer flex items-center gap-3 text-sm font-medium text-primary">
                     <span className="material-symbols-outlined text-[18px]">settings</span>
-                    Settings
+                    {t('Settings', 'Definições')}
                   </button>
                   <button onClick={() => setShowUser(false)} className="w-full text-left px-5 py-3 hover:bg-surface-container-lowest transition-colors cursor-pointer flex items-center gap-3 text-sm font-medium text-error">
                     <span className="material-symbols-outlined text-[18px]">logout</span>
-                    Sign Out
+                    {t('Sign Out', 'Terminar Sessão')}
                   </button>
                 </div>
               </div>
